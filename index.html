@@ -1,486 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodelessAI - Enterprise AI & Automation Solutions</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CodelessAI — Human-Centered AI Prompt Engineering at Scale</title>
+    <meta name="description" content="CodelessAI — enterprise prompt engineering and multilingual prompt-generation platform for no-code teams, production-ready APIs, MPC privacy workflows, Google Sheets integrations and AI+blockchain solutions.">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="CodelessAI — Human-Centered AI Prompt Engineering at Scale">
+    <meta property="og:description" content="Enterprise-grade multilingual prompt generation, AI integrations, and production-ready APIs for no-code teams and SaaS products.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#06b6d4',
+                        dark: '#0f172a',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-in': 'slideIn 0.5s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(99, 102, 241, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(99, 102, 241, 0.6)' },
+                        },
+                        slideIn: {
+                            '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                            '100%': { transform: 'translateX(0)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.8' },
+                        },
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7c3aed;
-            --accent: #06b6d4;
-            --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #06b6d4 100%);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * { font-family: 'Inter', sans-serif; }
+
         .glass {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .glass-dark {
-            background: rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
-        .gradient-border {
-            position: relative;
-            background: linear-gradient(white, white) padding-box,
-                        linear-gradient(135deg, #2563eb, #7c3aed, #06b6d4) border-box;
-            border: 1px solid transparent;
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+        }
+
         .gradient-text {
-            background: linear-gradient(135deg, #2563eb, #7c3aed, #06b6d4);
+            background: linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
-        .floating {
-            animation: floating 6s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translate(0, 0px); }
-            50% { transform: translate(0, -15px); }
-            100% { transform: translate(0, 0px); }
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease-out;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .tilt-card {
-            transition: transform 0.3s ease-out;
-        }
-        
-        .mobile-menu {
-            transform: translateY(-100%);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .mobile-menu.open {
-            transform: translateY(0);
-        }
-        
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.5), transparent);
-        }
-        
-        .stats-counter {
-            font-variant-numeric: tabular-nums;
-        }
-        
-        .tech-stack-icon {
-            transition: all 0.3s ease;
-        }
-        
-        .tech-stack-icon:hover {
-            transform: translateY(-5px);
-        }
-        
-        .case-study-card {
-            transition: all 0.3s ease;
-        }
-        
-        .case-study-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        /* Architecture Visualization Styles */
-        .architecture-container {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 1rem;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .architecture-layer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 1.5rem 0;
-            position: relative;
-        }
-        
-        .layer-label {
-            position: absolute;
-            left: 0;
-            font-weight: 600;
-            color: #4b5563;
-            font-size: 0.875rem;
-            width: 120px;
-        }
-        
-        .architecture-node {
-            background: white;
-            border-radius: 0.75rem;
-            padding: 1rem 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid #e5e7eb;
-            min-width: 160px;
-            max-width: 200px;
-        }
-        
-        .architecture-node:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        
-        .node-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 0.75rem;
-            font-size: 1.5rem;
-        }
-        
-        .node-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-        
-        .node-desc {
-            font-size: 0.75rem;
-            color: #6b7280;
-            line-height: 1.4;
-        }
-        
-        .connector {
-            position: absolute;
-            height: 40px;
-            width: 2px;
-            background: linear-gradient(to bottom, #c7d2fe, #a5b4fc);
-            z-index: 0;
-        }
-        
-        .flow-arrow {
-            position: absolute;
-            color: #a5b4fc;
-            z-index: 1;
-            font-size: 1.25rem;
-        }
-        
-        .data-flow {
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
-            border-radius: 2px;
-            z-index: 1;
-        }
-        
-        .flow-dot {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #3b82f6;
-            z-index: 2;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.7; }
-            100% { transform: scale(0.8); opacity: 1; }
-        }
-        
-        .architecture-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .grid-item {
-            background: white;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border-left: 4px solid #3b82f6;
-            transition: all 0.3s ease;
-        }
-        
-        .grid-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .grid-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
-        }
-        
-        .grid-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-        
-        .grid-desc {
-            font-size: 0.875rem;
-            color: #6b7280;
-            line-height: 1.5;
-        }
-        
-        .tech-pill {
-            display: inline-block;
-            background: #eff6ff;
-            color: #1d4ed8;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            .architecture-layer {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .layer-label {
-                position: relative;
-                margin-bottom: 1rem;
-                text-align: center;
-                width: 100%;
-            }
-            
-            .architecture-node {
-                margin-bottom: 1rem;
-            }
-            
-            .connector, .flow-arrow {
-                display: none;
-            }
-        }
-        
+
+        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-lift:hover { transform: translate3d(0, -5px, 0); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+
+        .card-tilt { transition: transform 0.1s ease-out, box-shadow 0.3s ease; }
+
+        html { scroll-behavior: smooth; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 4px; }
+        .dark ::-webkit-scrollbar-track { background: #0f172a; }
+        .dark ::-webkit-scrollbar-thumb { background: #6366f1; }
+
         @media (prefers-reduced-motion: reduce) {
-            .floating, .fade-in, .tilt-card, .tech-stack-icon, .case-study-card {
-                animation: none;
-                transition: none;
-            }
+            * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
         }
+
+        .focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 shadow-sm border-b border-gray-100">
-        <div class="container mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">C</span>
+<body class="bg-white dark:bg-dark text-gray-800 dark:text-white transition-colors duration-300">
+    <!-- Animated Background Elements -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div class="absolute -top-40 -right-32 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-float"></div>
+        <div class="absolute -bottom-40 -left-32 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl animate-float" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glass dark:glass-dark shadow-lg backdrop-blur-xl">
+        <nav class="container mx-auto px-4 py-4" aria-label="Main navigation">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 group cursor-pointer">
+                    <div class="p-2 bg-primary rounded-xl shadow-lg group-hover:animate-glow transition-all duration-300">
+                        <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15L12 18M12 18L15 21M12 18L9 21M8 8H16M8 8C8 5.79086 9.79086 4 12 4C14.2091 4 16 5.79086 16 8M8 8V11C8 13.2091 9.79086 15 12 15C14.2091 15 16 13.2091 16 11V8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
                     </div>
                     <div>
-                        <span class="text-xl font-bold gradient-text">CodelessAI</span>
-                        <p class="text-xs text-gray-500 -mt-1">Division of Codeless Technologies</p>
+                        <h1 class="text-xl font-bold gradient-text">CodelessAI</h1>
+                        <p class="text-xs text-gray-600 dark:text-gray-300">AI arm of Codeless Technologies</p>
                     </div>
                 </div>
-                
+
+                <!-- Desktop Navigation -->
                 <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition font-medium">Services</a>
-                    <a href="#architecture" class="text-gray-600 hover:text-blue-600 transition font-medium">Architecture</a>
-                    <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition font-medium">Solutions</a>
-                    <a href="#case-studies" class="text-gray-600 hover:text-blue-600 transition font-medium">Case Studies</a>
-                    <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition font-medium">Pricing</a>
-                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition font-medium">About</a>
-                </div>
-                
-                <div class="hidden lg:block">
-                    <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg font-medium hover:shadow-lg transition-all">
-                        Request Consultation
+                    <a href="#product" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 hover-lift px-3 py-2 rounded-lg">Product</a>
+                    <a href="#integrations" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 hover-lift px-3 py-2 rounded-lg">Integrations</a>
+                    <a href="#solutions" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 hover-lift px-3 py-2 rounded-lg">Solutions</a>
+                    <a href="#pricing" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 hover-lift px-3 py-2 rounded-lg">Pricing</a>
+                    <a href="#team" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 hover-lift px-3 py-2 rounded-lg">Team</a>
+                    <a href="#docs" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 hover-lift px-3 py-2 rounded-lg">Docs</a>
+                    <button onclick="toggleDarkMode()" class="p-3 rounded-xl bg-white dark:bg-dark shadow-lg hover-lift transition-all duration-300 border border-gray-200 dark:border-gray-700" aria-label="Toggle dark mode">
+                        <svg class="w-5 h-5 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                        </svg>
+                    </button>
+                    <button onclick="openContactModal()" class="glass dark:glass-dark px-6 py-3 rounded-xl font-semibold hover-lift transition-all duration-300 animate-pulse-soft">
+                        Request Demo
                     </button>
                 </div>
-                
-                <button id="mobile-menu-btn" class="lg:hidden text-gray-600">
-                    <i class="fas fa-bars text-xl"></i>
+
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-3 rounded-xl bg-white dark:bg-dark shadow-lg border border-gray-200 dark:border-gray-700" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
+                    <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
                 </button>
             </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
-            <div class="flex flex-col p-4 space-y-4">
-                <a href="#services" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Services</a>
-                <a href="#architecture" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Architecture</a>
-                <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Solutions</a>
-                <a href="#case-studies" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Case Studies</a>
-                <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Pricing</a>
-                <a href="#about" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">About</a>
-                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg font-medium mt-4">
-                    Request Consultation
+
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="hidden lg:hidden mt-6 p-6 glass dark:glass-dark rounded-xl shadow-lg space-y-4">
+                <a href="#product" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/50 dark:hover:bg-dark/50" onclick="toggleMobileMenu()">Product</a>
+                <a href="#integrations" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/50 dark:hover:bg-dark/50" onclick="toggleMobileMenu()">Integrations</a>
+                <a href="#solutions" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/50 dark:hover:bg-dark/50" onclick="toggleMobileMenu()">Solutions</a>
+                <a href="#pricing" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/50 dark:hover:bg-dark/50" onclick="toggleMobileMenu()">Pricing</a>
+                <a href="#team" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/50 dark:hover:bg-dark/50" onclick="toggleMobileMenu()">Team</a>
+                <a href="#docs" class="block text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-accent transition-all duration-300 py-3 px-4 rounded-lg hover:bg-white/50 dark:hover:bg-dark/50" onclick="toggleMobileMenu()">Docs</a>
+                <button onclick="toggleDarkMode()" class="flex items-center space-x-3 text-gray-700 dark:text-gray-300 w-full py-3 px-4 rounded-lg hover:bg-white/50 dark:hover:bg-dark/50 transition-all duration-300">
+                    <span>Toggle Dark Mode</span>
+                </button>
+                <button onclick="openContactModal()" class="w-full glass dark:glass-dark px-6 py-3 rounded-xl font-semibold hover-lift transition-all duration-300 text-center">
+                    Request Demo
                 </button>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-24 px-4 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
-        <div class="absolute top-10 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-floating"></div>
-        <div class="absolute bottom-10 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-floating" style="animation-delay: 2s;"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-floating" style="animation-delay: 4s;"></div>
-        
-        <div class="container mx-auto max-w-6xl">
-            <div class="flex flex-col lg:flex-row items-center">
-                <div class="lg:w-1/2 mb-10 lg:mb-0 fade-in">
-                    <div class="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-                        <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
-                        Enterprise AI & Automation Division
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 gradient-bg"></div>
+        <div class="absolute inset-0 bg-black/20"></div>
+
+        <div class="relative z-10 container mx-auto px-4 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="animate-fade-in">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center glass dark:glass-dark px-6 py-3 rounded-full mb-8 shadow-lg">
+                        <div class="w-2 h-2 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                        <span class="text-white text-sm font-medium">Validated in production via Codeless Technologies internships</span>
                     </div>
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                        <span class="block">Transform Your Business</span>
-                        <span class="block gradient-text">With Intelligent Automation</span>
+
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                        CodelessAI —
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-100">
+                            Human-centered prompt engineering at scale
+                        </span>
                     </h1>
-                    <p class="text-lg text-gray-600 mb-8 max-w-xl">
-                        CodelessAI delivers enterprise-grade AI integrations, automation systems, API architecture, MPC security, database engineering, no-code platform support, and AI+Blockchain capabilities.
+
+                    <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                        Enterprise-grade multilingual prompt generation, model orchestration, and production APIs that empower no-code teams, automation engineers, and SaaS platforms. Built for reliability, privacy, and rapid integration.
                     </p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3.5 rounded-lg font-medium hover:shadow-lg transition-all flex items-center justify-center">
-                            <span>Explore Solutions</span>
-                            <i class="fas fa-arrow-right ml-2"></i>
+
+                    <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                        <button onclick="scrollToSection('pricing')" class="group bg-white text-primary px-8 py-4 rounded-xl font-semibold shadow-2xl hover-lift transition-all duration-300 transform hover:scale-105 flex items-center space-x-2">
+                            <span>Get Started</span>
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
                         </button>
-                        <button class="border border-blue-600 text-blue-600 px-8 py-3.5 rounded-lg font-medium hover:bg-blue-50 transition-all flex items-center justify-center">
-                            <i class="fas fa-play-circle mr-2"></i>
-                            <span>Watch Demo</span>
+                        <button onclick="openContactModal()" class="group border-2 border-white text-white px-8 py-4 rounded-xl font-semibold hover:bg-white hover:text-primary transition-all duration-300 hover-lift flex items-center space-x-2">
+                            <span>Request Demo</span>
+                            <svg class="w-5 h-5 group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
                         </button>
-                    </div>
-                    
-                    <div class="flex items-center mt-10 space-x-6">
-                        <div class="flex -space-x-2">
-                            <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
-                            <div class="w-8 h-8 bg-purple-500 rounded-full border-2 border-white"></div>
-                            <div class="w-8 h-8 bg-cyan-500 rounded-full border-2 border-white"></div>
-                            <div class="w-8 h-8 bg-gray-300 rounded-full border-2 border-white flex items-center justify-center text-xs text-gray-600">+12</div>
-                        </div>
-                        <div class="text-sm text-gray-600">
-                            <span class="font-semibold">200+</span> enterprises trust our solutions
-                        </div>
                     </div>
                 </div>
-                
-                <div class="lg:w-1/2 flex justify-center fade-in">
-                    <div class="relative">
-                        <div class="glass rounded-2xl p-6 shadow-2xl max-w-md w-full">
-                            <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white p-4 rounded-xl mb-6">
-                                <h3 class="font-bold text-lg mb-2">Enterprise AI Architecture</h3>
-                                <div class="space-y-3 text-sm">
-                                    <div class="flex items-center">
-                                        <div class="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
-                                        <span>Client Applications</span>
-                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
-                                    </div>
-                                    <div class="flex items-center ml-6">
-                                        <div class="w-3 h-3 bg-blue-400 rounded-full mr-3"></div>
-                                        <span>API Gateway & Security</span>
-                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
-                                    </div>
-                                    <div class="flex items-center ml-12">
-                                        <div class="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
-                                        <span>CodelessAI Engine</span>
-                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
-                                    </div>
-                                    <div class="flex items-center ml-18">
-                                        <div class="flex space-x-4">
-                                            <div class="flex items-center">
-                                                <div class="w-3 h-3 bg-cyan-400 rounded-full mr-2"></div>
-                                                <span>Data Pipeline</span>
-                                            </div>
-                                            <div class="flex items-center">
-                                                <div class="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
-                                                <span>MPC Layer</span>
-                                            </div>
+
+                <!-- Right Content - Prompt Preview -->
+                <div class="glass dark:glass-dark p-8 rounded-2xl shadow-2xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-lg font-semibold text-white">Live Prompt Preview</h3>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-green-400 bg-green-400/20 px-2 py-1 rounded-full">Active</span>
+                            <button onclick="copyToClipboard()" class="text-gray-400 hover:text-white transition-colors" aria-label="Copy to clipboard">
+                                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Demo Toggle -->
+                    <div class="flex bg-dark rounded-lg p-1 mb-4">
+                        <button id="inputToggle" class="flex-1 py-2 px-4 rounded-md bg-primary text-white text-sm font-medium transition-all duration-300">
+                            Input
+                        </button>
+                        <button id="outputToggle" class="flex-1 py-2 px-4 rounded-md text-gray-400 text-sm font-medium transition-all duration-300">
+                            Generated Output
+                        </button>
+                    </div>
+
+                    <!-- Prompt Display -->
+                    <div class="bg-dark rounded-xl p-6 font-mono text-sm">
+                        <div id="inputDisplay" class="space-y-3">
+                            <div class="text-green-400">
+                                <span class="text-gray-400"># Input (Multilingual)</span><br>
+                                <span class="typing-animation">"Créer une image d'un paysage urbain futuriste avec des bâtiments intelligents et des véhicules volants, style cyberpunk"</span>
+                            </div>
+                            <div class="text-blue-400">
+                                <span class="text-gray-400"># Optimized Prompt</span><br>
+                                <span class="typing-animation" style="animation-delay: 1s">"Generate a cyberpunk-style futuristic urban landscape with intelligent smart-buildings, flying vehicles, neon-lit streets, and holographic advertisements, 4K resolution, cinematic lighting"</span>
+                            </div>
+                        </div>
+                        <div id="outputDisplay" class="hidden space-y-3">
+                            <div class="text-purple-400">
+                                <span class="text-gray-400"># Generated Output</span><br>
+                                <div class="bg-dark/50 rounded-lg p-4 mt-2 border border-gray-700">
+                                    <div class="animate-pulse flex space-x-4">
+                                        <div class="flex-1 space-y-2">
+                                            <div class="h-4 bg-gray-700 rounded w-3/4"></div>
+                                            <div class="h-4 bg-gray-700 rounded"></div>
+                                            <div class="h-4 bg-gray-700 rounded w-5/6"></div>
                                         </div>
-                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
                                     </div>
-                                    <div class="flex items-center ml-24">
-                                        <div class="w-3 h-3 bg-pink-400 rounded-full mr-3"></div>
-                                        <span>Automation Engine</span>
-                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
-                                    </div>
-                                    <div class="flex items-center ml-30">
-                                        <div class="w-3 h-3 bg-indigo-400 rounded-full mr-3"></div>
-                                        <span>Blockchain Integration</span>
-                                    </div>
+                                    <div class="text-xs text-gray-400 mt-2">AI-generated image preview placeholder</div>
                                 </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4 text-sm">
-                                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
-                                    <i class="fas fa-brain text-blue-500 mb-2"></i>
-                                    <p class="font-medium">AI Model Orchestration</p>
-                                </div>
-                                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
-                                    <i class="fas fa-database text-purple-500 mb-2"></i>
-                                    <p class="font-medium">Secure Data Pipelines</p>
-                                </div>
-                                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
-                                    <i class="fas fa-shield-alt text-cyan-500 mb-2"></i>
-                                    <p class="font-medium">MPC Security Layer</p>
-                                </div>
-                                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
-                                    <i class="fas fa-link text-green-500 mb-2"></i>
-                                    <p class="font-medium">Blockchain Integration</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Floating elements -->
-                        <div class="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-3 w-24 floating">
-                            <div class="text-center">
-                                <i class="fas fa-rocket text-blue-500 text-xl mb-1"></i>
-                                <p class="text-xs font-medium">Fast Deployment</p>
-                            </div>
-                        </div>
-                        
-                        <div class="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-3 w-24 floating" style="animation-delay: 2s;">
-                            <div class="text-center">
-                                <i class="fas fa-shield-check text-green-500 text-xl mb-1"></i>
-                                <p class="text-xs font-medium">Enterprise Security</p>
                             </div>
                         </div>
                     </div>
@@ -489,815 +279,996 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto max-w-6xl px-4">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="text-center fade-in">
-                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2 stats-counter" data-target="200">0</div>
-                    <p class="text-gray-600">Enterprise Clients</p>
+    <!-- Product Features -->
+    <section id="product" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Enterprise-Grade AI Features</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Designed for production: secure prompt libraries, provider-agnostic model orchestration, and audited APIs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card group glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Model & Provider Integrations</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Provider-agnostic SDKs and connectors that let you route prompts to the most cost-effective and performant models for each task.
+                    </p>
                 </div>
-                <div class="text-center fade-in">
-                    <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2 stats-counter" data-target="350">0</div>
-                    <p class="text-gray-600">Projects Delivered</p>
+
+                <!-- Feature 2 -->
+                <div class="feature-card group glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Prompt Libraries & Versioning</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Secure, searchable prompt stores with version control, change audit, and fast retrieval for production workflows.
+                    </p>
                 </div>
-                <div class="text-center fade-in">
-                    <div class="text-3xl md:text-4xl font-bold text-cyan-600 mb-2 stats-counter" data-target="99.5">0</div>
-                    <p class="text-gray-600">Uptime SLA</p>
+
+                <!-- Feature 3 -->
+                <div class="feature-card group glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">APIs, SDKs & Webhooks</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Production-ready REST APIs, SDKs and webhook-first design for real-time automation and reliable integrations with existing stacks.
+                    </p>
                 </div>
-                <div class="text-center fade-in">
-                    <div class="text-3xl md:text-4xl font-bold text-green-600 mb-2 stats-counter" data-target="40">0</div>
-                    <p class="text-gray-600">Cost Reduction Avg.</p>
+
+                <!-- Feature 4 -->
+                <div class="feature-card group glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">MPC & Privacy-First Workflows</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Multi-party computation and privacy-preserving evaluation for regulated environments and collaborative prompt optimization.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card group glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.4s;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Automations & No-Code Support</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Native Google Sheets and no-code platform connectors that let teams build prompt pipelines, translations and prompt transforms without custom code.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card group glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.5s;">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">AI + Blockchain</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        On-chain provenance, token-gated models and verifiable outputs to support audit trails, licensing and novel monetization workflows.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-20 px-4 bg-gray-50">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Enterprise AI Services</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive AI integration and automation solutions for modern enterprises</p>
+    <!-- Integrations & Architecture -->
+    <section id="integrations" class="py-20 bg-gray-50 dark:bg-gray-900 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Seamless Architecture & Integrations</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Connect CodelessAI across your stack with enterprise security, SLA-ready APIs, and flexible deployment options.
+                </p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card 1 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
-                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-brain text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">AI Integrations & Model Orchestration</h3>
-                    <p class="text-gray-600 mb-4">Connect any AI provider, route tasks intelligently, and build scalable AI-driven systems with provider-agnostic pipelines.</p>
-                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Multi-provider AI model orchestration</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Intelligent task routing & load balancing</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Provider-agnostic API pipelines</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-blue-600 font-medium flex items-center">
-                        <span>Learn more</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-                
-                <!-- Service Card 2 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
-                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-code text-purple-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">API Engineering & Backend Architecture</h3>
-                    <p class="text-gray-600 mb-4">Production-ready REST APIs, secure authentication, scalable backend flows, and microservices architecture.</p>
-                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Enterprise-grade REST API design</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Secure authentication & authorization</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Microservices architecture</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-blue-600 font-medium flex items-center">
-                        <span>Learn more</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-                
-                <!-- Service Card 3 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
-                    <div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-database text-cyan-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Database & Data Pipeline Engineering</h3>
-                    <p class="text-gray-600 mb-4">Optimized database design, real-time syncing, versioning, and secure data workflows for enterprise applications.</p>
-                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Optimized database architecture</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Real-time data synchronization</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Secure data workflows</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-blue-600 font-medium flex items-center">
-                        <span>Learn more</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-                
-                <!-- Service Card 4 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
-                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-shield-alt text-green-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">MPC & Secure Computation</h3>
-                    <p class="text-gray-600 mb-4">Privacy-preserving multi-party computation workflows for sensitive data operations and regulatory compliance.</p>
-                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Privacy-preserving data analytics</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Secure multi-party computation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Regulatory compliance solutions</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-blue-600 font-medium flex items-center">
-                        <span>Learn more</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-                
-                <!-- Service Card 5 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
-                    <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-robot text-yellow-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Automations & No-Code Platforms</h3>
-                    <p class="text-gray-600 mb-4">End-to-end workflow automation using no-code platforms, Python, and Sheets-based pipelines for business efficiency.</p>
-                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>No-code workflow automation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Python-based automation scripts</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Sheets-based pipeline automation</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-blue-600 font-medium flex items-center">
-                        <span>Learn more</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-                
-                <!-- Service Card 6 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
-                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
-                        <i class="fas fa-link text-indigo-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">AI + Blockchain Systems</h3>
-                    <p class="text-gray-600 mb-4">On-chain automation, verifiable AI processes, token-gated access, and decentralized logic for next-gen applications.</p>
-                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>On-chain AI automation</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Verifiable AI processes</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Token-gated access control</span>
-                        </li>
-                    </ul>
-                    <a href="#" class="text-blue-600 font-medium flex items-center">
-                        <span>Learn more</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Architecture Section -->
-    <section id="architecture" class="py-20 px-4 bg-white">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Enterprise AI Architecture</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">A comprehensive visualization of how CodelessAI integrates AI capabilities into enterprise systems</p>
-            </div>
-            
-            <div class="architecture-container mb-12">
-                <!-- Data Sources Layer -->
-                <div class="architecture-layer">
-                    <div class="layer-label">Data Sources</div>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div class="architecture-node">
-                            <div class="node-icon bg-blue-100 text-blue-600">
-                                <i class="fas fa-database"></i>
-                            </div>
-                            <div class="node-title">Databases</div>
-                            <div class="node-desc">SQL, NoSQL, Data Warehouses</div>
+            <div class="glass dark:glass-dark p-8 rounded-2xl shadow-xl max-w-4xl mx-auto animate-fade-in">
+                <!-- Architecture Visualization -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="text-center p-4 bg-primary/10 rounded-xl border border-primary/20">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            </svg>
                         </div>
-                        <div class="architecture-node">
-                            <div class="node-icon bg-purple-100 text-purple-600">
-                                <i class="fas fa-cloud"></i>
-                            </div>
-                            <div class="node-title">Cloud Storage</div>
-                            <div class="node-desc">S3, Blob Storage, Cloud Files</div>
+                        <div class="text-sm font-semibold text-primary">Clients</div>
+                    </div>
+                    <div class="text-center p-4 bg-secondary/10 rounded-xl border border-secondary/20">
+                        <div class="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
                         </div>
-                        <div class="architecture-node">
-                            <div class="node-icon bg-green-100 text-green-600">
-                                <i class="fas fa-stream"></i>
-                            </div>
-                            <div class="node-title">Data Streams</div>
-                            <div class="node-desc">Kafka, Event Hubs, Pub/Sub</div>
+                        <div class="text-sm font-semibold text-secondary">APIs / SDKs</div>
+                    </div>
+                    <div class="text-center p-4 bg-accent/10 rounded-xl border border-accent/20">
+                        <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
                         </div>
+                        <div class="text-sm font-semibold text-accent">CodelessAI Core</div>
+                    </div>
+                    <div class="text-center p-4 bg-green-500/10 rounded-xl border border-green-500/20">
+                        <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-2">
+                            <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"/>
+                            </svg>
+                        </div>
+                        <div class="text-sm font-semibold text-green-500">Providers</div>
                     </div>
                 </div>
-                
-                <!-- Data Flow Arrow -->
-                <div class="connector left-1/2 transform -translate-x-1/2 top-40"></div>
-                <div class="flow-arrow left-1/2 transform -translate-x-1/2 top-44">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-                
-                <!-- Ingestion & Processing Layer -->
-                <div class="architecture-layer">
-                    <div class="layer-label">Ingestion & Processing</div>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div class="architecture-node">
-                            <div class="node-icon bg-cyan-100 text-cyan-600">
-                                <i class="fas fa-tasks"></i>
-                            </div>
-                            <div class="node-title">Data Pipelines</div>
-                            <div class="node-desc">ETL/ELT, Data Transformation</div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Core Capabilities</h3>
+                        <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                            <div class="w-2 h-2 bg-primary rounded-full"></div>
+                            <span>Connectors for major model providers and on-prem options</span>
                         </div>
-                        <div class="architecture-node">
-                            <div class="node-icon bg-indigo-100 text-indigo-600">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="node-title">MPC Security</div>
-                            <div class="node-desc">Privacy-Preserving Computation</div>
+                        <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                            <div class="w-2 h-2 bg-primary rounded-full"></div>
+                            <span>REST API & webhook-first architecture</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                            <div class="w-2 h-2 bg-primary rounded-full"></div>
+                            <span>Sheets-driven prompt transforms and no-code automations</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                            <div class="w-2 h-2 bg-primary rounded-full"></div>
+                            <span>Role based access and secure prompt storage</span>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Data Flow Arrow -->
-                <div class="connector left-1/2 transform -translate-x-1/2 top-80"></div>
-                <div class="flow-arrow left-1/2 transform -translate-x-1/2 top-84">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-                
-                <!-- CodelessAI Engine Layer -->
-                <div class="architecture-layer">
-                    <div class="layer-label">CodelessAI Engine</div>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div class="architecture-node relative bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg">
-                            <div class="node-icon bg-white/20 text-white">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <div class="node-title">AI Orchestration</div>
-                            <div class="node-desc">Model Routing & Management</div>
+
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Enterprise Features</h3>
+                        <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                            <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                            <span>Multi-tenant architecture and SLA-backed plans</span>
                         </div>
-                        <div class="architecture-node">
-                            <div class="node-icon bg-yellow-100 text-yellow-600">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="node-title">AI Models</div>
-                            <div class="node-desc">Multi-Provider AI Services</div>
+                        <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                            <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                            <span>Audit logging, compliance & data residency options</span>
                         </div>
-                        <div class="architecture-node">
-                            <div class="node-icon bg-red-100 text-red-600">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="node-title">Automation Engine</div>
-                            <div class="node-desc">Workflow Automation</div>
+                        <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                            <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                            <span>Usage analytics, rate limiting and quota controls</span>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Data Flow Arrow -->
-                <div class="connector left-1/2 transform -translate-x-1/2 top-120"></div>
-                <div class="flow-arrow left-1/2 transform -translate-x-1/2 top-124">
-                    <i class="fas fa-arrow-down"></i>
-                </div>
-                
-                <!-- Output & Integration Layer -->
-                <div class="architecture-layer">
-                    <div class="layer-label">Output & Integration</div>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <div class="architecture-node">
-                            <div class="node-icon bg-blue-100 text-blue-600">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="node-title">APIs</div>
-                            <div class="node-desc">REST, GraphQL, Webhooks</div>
+                        <div class="flex items-center space-x-3 text-gray-600 dark:text-gray-300">
+                            <div class="w-2 h-2 bg-secondary rounded-full"></div>
+                            <span>Dedicated onboarding, integration support and professional services</span>
                         </div>
-                        <div class="architecture-node">
-                            <div class="node-icon bg-green-100 text-green-600">
-                                <i class="fas fa-link"></i>
-                            </div>
-                            <div class="node-title">Blockchain</div>
-                            <div class="node-desc">Smart Contracts, Verification</div>
-                        </div>
-                        <div class="architecture-node">
-                            <div class="node-icon bg-purple-100 text-purple-600">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="node-title">Applications</div>
-                            <div class="node-desc">Web, Mobile, Internal Tools</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Animated Data Flow -->
-                <div class="data-flow left-1/2 transform -translate-x-1/2 top-20 h-80"></div>
-                <div class="flow-dot left-1/2 transform -translate-x-1/2 top-24 floating"></div>
-                <div class="flow-dot left-1/2 transform -translate-x-1/2 top-48 floating" style="animation-delay: 0.5s;"></div>
-                <div class="flow-dot left-1/2 transform -translate-x-1/2 top-72 floating" style="animation-delay: 1s;"></div>
-                <div class="flow-dot left-1/2 transform -translate-x-1/2 top-96 floating" style="animation-delay: 1.5s;"></div>
-            </div>
-            
-            <div class="mb-12">
-                <h2 class="text-2xl font-bold mb-6 text-center">Key Architecture Components</h2>
-                <div class="architecture-grid">
-                    <div class="grid-item">
-                        <div class="grid-icon bg-blue-100 text-blue-600">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3 class="grid-title">Unified Data Layer</h3>
-                        <p class="grid-desc">Connect to multiple data sources with secure, standardized access patterns and real-time synchronization.</p>
-                        <div class="mt-3">
-                            <span class="tech-pill">SQL</span>
-                            <span class="tech-pill">NoSQL</span>
-                            <span class="tech-pill">APIs</span>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-item">
-                        <div class="grid-icon bg-purple-100 text-purple-600">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h3 class="grid-title">MPC Security Layer</h3>
-                        <p class="grid-desc">Privacy-preserving computation for sensitive data without exposing raw information to AI models.</p>
-                        <div class="mt-3">
-                            <span class="tech-pill">Encryption</span>
-                            <span class="tech-pill">Zero-Knowledge</span>
-                            <span class="tech-pill">GDPR</span>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-item">
-                        <div class="grid-icon bg-cyan-100 text-cyan-600">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h3 class="grid-title">AI Orchestration</h3>
-                        <p class="grid-desc">Intelligent routing between multiple AI providers with failover, load balancing, and cost optimization.</p>
-                        <div class="mt-3">
-                            <span class="tech-pill">OpenAI</span>
-                            <span class="tech-pill">Anthropic</span>
-                            <span class="tech-pill">Azure AI</span>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-item">
-                        <div class="grid-icon bg-green-100 text-green-600">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h3 class="grid-title">Automation Engine</h3>
-                        <p class="grid-desc">Workflow automation with conditional logic, error handling, and integration with no-code platforms.</p>
-                        <div class="mt-3">
-                            <span class="tech-pill">Zapier</span>
-                            <span class="tech-pill">Make</span>
-                            <span class="tech-pill">n8n</span>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-item">
-                        <div class="grid-icon bg-yellow-100 text-yellow-600">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="grid-title">API Gateway</h3>
-                        <p class="grid-desc">Unified API layer with authentication, rate limiting, monitoring, and seamless integration capabilities.</p>
-                        <div class="mt-3">
-                            <span class="tech-pill">REST</span>
-                            <span class="tech-pill">GraphQL</span>
-                            <span class="tech-pill">Webhooks</span>
-                        </div>
-                    </div>
-                    
-                    <div class="grid-item">
-                        <div class="grid-icon bg-indigo-100 text-indigo-600">
-                            <i class="fas fa-link"></i>
-                        </div>
-                        <h3 class="grid-title">Blockchain Integration</h3>
-                        <p class="grid-desc">On-chain verification of AI processes, token-gated access, and immutable audit trails.</p>
-                        <div class="mt-3">
-                            <span class="tech-pill">Ethereum</span>
-                            <span class="tech-pill">Polygon</span>
-                            <span class="tech-pill">Smart Contracts</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
-                <h2 class="text-2xl font-bold mb-6">How It Works</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-upload text-blue-600 text-xl"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">1. Data Ingestion</h3>
-                        <p class="text-gray-600 text-sm">Connect your data sources - databases, APIs, cloud storage, or real-time streams.</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-cogs text-purple-600 text-xl"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">2. AI Processing</h3>
-                        <p class="text-gray-600 text-sm">CodelessAI orchestrates AI models, applies security, and runs automations.</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-rocket text-green-600 text-xl"></i>
-                        </div>
-                        <h3 class="font-bold mb-2">3. Action & Integration</h3>
-                        <p class="text-gray-600 text-sm">Results are delivered via APIs, automations, or blockchain-verified processes.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Solutions Section -->
-    <section id="solutions" class="py-20 px-4 bg-gray-50">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Industry Solutions</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Tailored AI and automation solutions for your industry challenges</p>
+    <!-- Solutions / Use Cases -->
+    <section id="solutions" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Industry Solutions</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Tailored implementations for agencies, product teams, automation engineers, and enterprise SaaS.
+                </p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Solution 1 -->
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 fade-in border border-blue-100">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-industry text-blue-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Manufacturing & Supply Chain</h3>
-                    <p class="text-gray-600 mb-4">AI-powered predictive maintenance, inventory optimization, and supply chain automation.</p>
-                    <div class="flex items-center text-blue-600 font-medium">
-                        <span>View case study</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </div>
-                </div>
-                
-                <!-- Solution 2 -->
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 fade-in border border-purple-100">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-university text-purple-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Financial Services</h3>
-                    <p class="text-gray-600 mb-4">Fraud detection, algorithmic trading, regulatory compliance, and customer service automation.</p>
-                    <div class="flex items-center text-purple-600 font-medium">
-                        <span>View case study</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </div>
-                </div>
-                
-                <!-- Solution 3 -->
-                <div class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 fade-in border border-cyan-100">
-                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-heartbeat text-cyan-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Healthcare & Life Sciences</h3>
-                    <p class="text-gray-600 mb-4">Patient data analysis, drug discovery acceleration, and medical imaging diagnostics.</p>
-                    <div class="flex items-center text-cyan-600 font-medium">
-                        <span>View case study</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </div>
-                </div>
-                
-                <!-- Solution 4 -->
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 fade-in border border-green-100">
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-shopping-cart text-green-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Retail & E-commerce</h3>
-                    <p class="text-gray-600 mb-4">Personalized recommendations, inventory management, and customer service automation.</p>
-                    <div class="flex items-center text-green-600 font-medium">
-                        <span>View case study</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </div>
-                </div>
-                
-                <!-- Solution 5 -->
-                <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-6 fade-in border border-yellow-100">
-                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-graduation-cap text-yellow-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Education & EdTech</h3>
-                    <p class="text-gray-600 mb-4">Personalized learning paths, automated grading, and intelligent tutoring systems.</p>
-                    <div class="flex items-center text-yellow-600 font-medium">
-                        <span>View case study</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </div>
-                </div>
-                
-                <!-- Solution 6 -->
-                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 fade-in border border-indigo-100">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-truck text-indigo-600 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Logistics & Transportation</h3>
-                    <p class="text-gray-600 mb-4">Route optimization, fleet management, and predictive delivery scheduling.</p>
-                    <div class="flex items-center text-indigo-600 font-medium">
-                        <span>View case study</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
-        <div class="container mx-auto max-w-4xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in">Ready to Transform Your Business with AI?</h2>
-            <p class="text-xl mb-8 text-blue-100 fade-in">Schedule a consultation with our AI experts to discuss your specific needs and challenges.</p>
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in">
-                <button class="bg-white text-blue-600 px-8 py-3.5 rounded-lg font-medium hover:bg-blue-50 transition-all">
-                    <i class="fas fa-calendar-alt mr-2"></i>
-                    Schedule a Demo
+            <!-- Filter Chips -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12 animate-fade-in">
+                <button class="filter-chip active px-6 py-3 rounded-full bg-primary text-white font-medium transition-all duration-300 hover-lift" data-filter="all">
+                    All Solutions
                 </button>
-                <button class="bg-transparent border border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white/10 transition-all">
-                    <i class="fas fa-file-alt mr-2"></i>
-                    Download Brochure
+                <button class="filter-chip px-6 py-3 rounded-full glass dark:glass-dark font-medium transition-all duration-300 hover-lift" data-filter="agencies">
+                    Agencies
                 </button>
+                <button class="filter-chip px-6 py-3 rounded-full glass dark:glass-dark font-medium transition-all duration-300 hover-lift" data-filter="developers">
+                    Developers
+                </button>
+                <button class="filter-chip px-6 py-3 rounded-full glass dark:glass-dark font-medium transition-all duration-300 hover-lift" data-filter="automation">
+                    Automation Engineers
+                </button>
+                <button class="filter-chip px-6 py-3 rounded-full glass dark:glass-dark font-medium transition-all duration-300 hover-lift" data-filter="nocode">
+                    No-Code Creators
+                </button>
+                <button class="filter-chip px-6 py-3 rounded-full glass dark:glass-dark font-medium transition-all duration-300 hover-lift" data-filter="enterprise">
+                    Enterprises
+                </button>
+            </div>
+
+            <!-- Solution Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Agency Solution -->
+                <div class="solution-card glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" data-category="agencies">
+                    <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Agencies</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Localized creative at scale with multilingual prompt templates and translation workflows.
+                    </p>
+                    <div class="text-sm text-primary font-semibold">
+                        Reduce prompt engineering time by up to 5x
+                    </div>
+                </div>
+
+                <!-- Developer Solution -->
+                <div class="solution-card glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" data-category="developers" style="animation-delay: 0.1s;">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Developers</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Versioned prompt libraries, audit logs and production APIs to ship reliable AI features.
+                    </p>
+                    <div class="text-sm text-primary font-semibold">
+                        Ship AI features 3x faster
+                    </div>
+                </div>
+
+                <!-- Automation Solution -->
+                <div class="solution-card glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" data-category="automation" style="animation-delay: 0.2s;">
+                    <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Automation Engineers</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Conditional prompt pipelines, Sheets-driven transforms, and webhook actions for end-to-end automation.
+                    </p>
+                    <div class="text-sm text-primary font-semibold">
+                        Automate complex workflows in hours
+                    </div>
+                </div>
+
+                <!-- No-Code Solution -->
+                <div class="solution-card glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" data-category="nocode" style="animation-delay: 0.3s;">
+                    <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">No-Code Creators</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Drag-and-drop prompt workflows, Google Sheets-based translations and prompt templates to build AI apps without engineering overhead.
+                    </p>
+                    <div class="text-sm text-primary font-semibold">
+                        Build AI apps without writing code
+                    </div>
+                </div>
+
+                <!-- Enterprise Solution -->
+                <div class="solution-card glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" data-category="enterprise" style="animation-delay: 0.4s;">
+                    <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Enterprises</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Privacy-first deployments, on-prem options, and verifiable model outputs for regulated use-cases.
+                    </p>
+                    <div class="text-sm text-primary font-semibold">
+                        Enterprise-grade security & compliance
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="py-20 bg-gray-50 dark:bg-gray-900 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Start small and scale as you grow. All prices shown in Indian Rupees (₹).
+                </p>
+            </div>
+
+            <!-- Billing Toggle -->
+            <div class="flex justify-center mb-12 animate-fade-in">
+                <div class="glass dark:glass-dark rounded-lg p-1">
+                    <button id="monthlyToggle" class="px-6 py-3 rounded-md bg-primary text-white font-medium transition-all duration-300">
+                        Monthly
+                    </button>
+                    <button id="yearlyToggle" class="px-6 py-3 rounded-md text-gray-600 dark:text-gray-300 font-medium transition-all duration-300">
+                        Yearly (Save 20%)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Starter -->
+                <div class="glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Starter</h3>
+                        <div class="flex items-baseline justify-center mb-4">
+                            <span class="text-4xl font-bold text-primary">₹999</span>
+                            <span class="text-gray-600 dark:text-gray-300 ml-2">/month</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">Individuals & small teams — core prompt tooling</p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Basic prompt library</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">10,000 API calls / month</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Email support</span>
+                        </li>
+                    </ul>
+
+                    <button onclick="scrollToSection('contact')" class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-3 rounded-xl font-semibold hover-lift transition-all duration-300">
+                        Get Started
+                    </button>
+                </div>
+
+                <!-- Professional -->
+                <div class="glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in relative" style="animation-delay: 0.1s;">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold">Most Popular</span>
+                    </div>
+
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Professional</h3>
+                        <div class="flex items-baseline justify-center mb-4">
+                            <span class="text-4xl font-bold text-primary">₹4,999</span>
+                            <span class="text-gray-600 dark:text-gray-300 ml-2">/month</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">Growing teams and production deployments</p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Versioned prompt libraries & audits</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">API keys, webhooks & SDKs</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">100,000 API calls / month</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Priority support & onboarding</span>
+                        </li>
+                    </ul>
+
+                    <button onclick="scrollToSection('contact')" class="w-full bg-primary text-white py-3 rounded-xl font-semibold hover-lift transition-all duration-300 transform hover:scale-105">
+                        Start Free Trial
+                    </button>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Enterprise</h3>
+                        <div class="flex items-baseline justify-center mb-4">
+                            <span class="text-4xl font-bold text-primary">Custom</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300">Large-scale deployments and regulated environments</p>
+                    </div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">MPC & privacy workflows</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">On-prem deployment & data residency</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">SLA guarantees & dedicated support</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-gray-600 dark:text-gray-300">Custom integrations & professional services</span>
+                        </li>
+                    </ul>
+
+                    <button onclick="openContactModal()" class="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-3 rounded-xl font-semibold hover-lift transition-all duration-300">
+                        Contact Sales
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Mission -->
+    <section id="team" class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Our Mission & Team</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                    Human-centered prompt engineering at scale. We build multilingual prompt-generation tools, production APIs, and privacy-first integrations that empower no-code teams, automation engineers, and enterprise SaaS.
+                </p>
+                <p class="text-lg text-primary font-semibold mt-6">
+                    Built and validated in production with Codeless Technologies' internship and training programs.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <!-- Team Member 1 -->
+                <div class="team-card glass dark:glass-dark p-6 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 dark:text-white mb-2">Alex Chen</h3>
+                    <p class="text-primary text-center font-semibold mb-3">Lead AI Engineer</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-center text-sm">
+                        Model orchestration, prompt optimization
+                    </p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card glass dark:glass-dark p-6 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 dark:text-white mb-2">Sarah Rodriguez</h3>
+                    <p class="text-primary text-center font-semibold mb-3">API Architect</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-center text-sm">
+                        REST APIs, webhooks and SDKs
+                    </p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card glass dark:glass-dark p-6 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 dark:text-white mb-2">Marcus Johnson</h3>
+                    <p class="text-primary text-center font-semibold mb-3">Security Lead</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-center text-sm">
+                        MPC and privacy-first workflows
+                    </p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card glass dark:glass-dark p-6 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="w-20 h-20 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center text-gray-800 dark:text-white mb-2">Priya Sharma</h3>
+                    <p class="text-primary text-center font-semibold mb-3">Product Manager</p>
+                    <p class="text-gray-600 dark:text-gray-300 text-center text-sm">
+                        No-code integrations & automations
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-900 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16 animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Trusted by Teams Worldwide</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Customer feedback from agencies, fintechs and automation teams who use CodelessAI in production.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in">
+                    <div class="text-yellow-400 mb-4">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 italic">
+                        "CodelessAI reduced our prompt engineering time by 5x. Multilingual templates and Sheets-driven workflows made localisation trivial."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-primary font-semibold">JD</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-800 dark:text-white">Jordan Davis</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">CTO, GrowthAgency</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-yellow-400 mb-4">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 italic">
+                        "MPC features allowed privacy-preserving evaluation that met our compliance requirements. Enterprise-grade security."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-primary font-semibold">MS</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-800 dark:text-white">Maria Schmidt</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Head of AI, FinTech Corp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card glass dark:glass-dark p-8 rounded-2xl shadow-xl hover-lift transition-all duration-500 animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-yellow-400 mb-4">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z"/>
+                        </svg>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 italic">
+                        "As a no-code creator, CodelessAI let me build production automations using Sheets and no-code tools — no developer required."
+                    </p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-primary font-semibold">TK</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-gray-800 dark:text-white">Taylor Kim</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">Automation Specialist</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="py-20 relative">
+        <div class="container mx-auto px-4">
+            <div class="glass dark:glass-dark rounded-2xl p-12 text-center max-w-4xl mx-auto animate-fade-in">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Ready to transform your AI workflows?</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Join teams using CodelessAI to build, deploy and scale multilingual prompt workflows, automations and privacy-first AI features.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <button onclick="scrollToSection('pricing')" class="bg-primary text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover-lift transition-all duration-300 transform hover:scale-105">
+                        Start Free Trial
+                    </button>
+                    <button onclick="openContactModal()" class="border-2 border-primary text-primary dark:text-accent px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-white transition-all duration-300 hover-lift">
+                        Request Demo
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-4">
-        <div class="container mx-auto max-w-6xl">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold">C</span>
-                        </div>
-                        <span class="text-xl font-bold">CodelessAI</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        The AI & Automation Division of Codeless Technologies.
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="animate-fade-in">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">CodelessAI</h3>
+                    <p class="text-blue-200 leading-relaxed">
+                        The AI arm of Codeless Technologies. Enterprise-grade prompt engineering, multilingual prompt-generation and privacy-first AI integrations.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition">
-                            <i class="fab fa-medium"></i>
-                        </a>
+                </div>
+
+                <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Product</h3>
+                    <div class="space-y-2">
+                        <a href="#product" class="block text-blue-200 hover:text-white transition-colors">Features</a>
+                        <a href="#integrations" class="block text-blue-200 hover:text-white transition-colors">Integrations</a>
+                        <a href="#pricing" class="block text-blue-200 hover:text-white transition-colors">Pricing</a>
+                        <a href="#docs" class="block text-blue-200 hover:text-white transition-colors">Documentation</a>
                     </div>
                 </div>
-                
-                <div>
-                    <h3 class="font-bold mb-4">Services</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">AI Integrations</a></li>
-                        <li><a href="#" class="hover:text-white transition">API Engineering</a></li>
-                        <li><a href="#" class="hover:text-white transition">Data Pipelines</a></li>
-                        <li><a href="#" class="hover:text-white transition">MPC Solutions</a></li>
-                        <li><a href="#" class="hover:text-white transition">Automation</a></li>
-                        <li><a href="#" class="hover:text-white transition">AI + Blockchain</a></li>
-                    </ul>
+
+                <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Company</h3>
+                    <div class="space-y-2">
+                        <a href="#team" class="block text-blue-200 hover:text-white transition-colors">About</a>
+                        <a href="#" class="block text-blue-200 hover:text-white transition-colors">Careers</a>
+                        <a href="#" class="block text-blue-200 hover:text-white transition-colors">Privacy</a>
+                        <a href="#" class="block text-blue-200 hover:text-white transition-colors">Terms</a>
+                    </div>
                 </div>
-                
-                <div>
-                    <h3 class="font-bold mb-4">Company</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition">Case Studies</a></li>
-                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
-                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-bold mb-4">Resources</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition">Documentation</a></li>
-                        <li><a href="#" class="hover:text-white transition">API Reference</a></li>
-                        <li><a href="#" class="hover:text-white transition">Whitepapers</a></li>
-                        <li><a href="#" class="hover:text-white transition">Support</a></li>
-                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
-                    </ul>
+
+                <div class="animate-fade-in" style="animation-delay: 0.3s;">
+                    <h3 class="text-xl font-bold mb-4 gradient-text">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-blue-200 hover:text-white transition-colors" aria-label="Twitter">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-blue-200 hover:text-white transition-colors" aria-label="LinkedIn">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-blue-200 hover:text-white transition-colors" aria-label="GitHub">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>© 2023 CodelessAI - Division of Codeless Technologies. All rights reserved.</p>
+
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-blue-200">
+                    © 2025 CodelessAI / Codeless Technologies. All rights reserved.
+                </p>
             </div>
         </div>
     </footer>
 
-    <!-- Consultation Modal -->
-    <div id="consultation-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-white rounded-2xl p-8 max-w-md w-full relative">
-            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-            
-            <h3 class="text-2xl font-bold mb-2">Request Consultation</h3>
-            <p class="text-gray-600 mb-6">Fill out the form below and our team will contact you within 24 hours.</p>
-            
-            <form class="space-y-4">
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center hidden z-50 animate-fade-in">
+        <div class="glass dark:glass-dark rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold text-gray-800 dark:text-white">Request Demo</h3>
+                <button onclick="closeContactModal()" class="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors" aria-label="Close modal">
+                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="contactForm" class="space-y-4">
                 <div>
-                    <label for="consult-name" class="block text-gray-700 mb-2">Full Name</label>
-                    <input type="text" id="consult-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <label for="contactName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name *</label>
+                    <input type="text" id="contactName" name="name" required 
+                           class="w-full px-4 py-3 bg-white/50 dark:bg-dark/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
                 </div>
-                
+
                 <div>
-                    <label for="consult-email" class="block text-gray-700 mb-2">Work Email</label>
-                    <input type="email" id="consult-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <label for="contactCompany" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Company</label>
+                    <input type="text" id="contactCompany" name="company" 
+                           class="w-full px-4 py-3 bg-white/50 dark:bg-dark/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
                 </div>
-                
+
                 <div>
-                    <label for="consult-company" class="block text-gray-700 mb-2">Company</label>
-                    <input type="text" id="consult-company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <label for="contactEmail" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address *</label>
+                    <input type="email" id="contactEmail" name="email" required 
+                           class="w-full px-4 py-3 bg-white/50 dark:bg-dark/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
                 </div>
-                
+
                 <div>
-                    <label for="consult-service" class="block text-gray-700 mb-2">Service Interest</label>
-                    <select id="consult-service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option value="">Select a service</option>
-                        <option value="ai-integrations">AI Integrations</option>
-                        <option value="api-engineering">API Engineering</option>
-                        <option value="data-pipelines">Data Pipelines</option>
-                        <option value="mpc">MPC Solutions</option>
-                        <option value="automation">Automation</option>
-                        <option value="blockchain">AI + Blockchain</option>
+                    <label for="contactPlan" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Interested Plan</label>
+                    <select id="contactPlan" name="plan" 
+                            class="w-full px-4 py-3 bg-white/50 dark:bg-dark/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300">
+                        <option value="">Select a plan</option>
+                        <option value="starter">Starter</option>
+                        <option value="professional">Professional</option>
+                        <option value="enterprise">Enterprise</option>
                     </select>
                 </div>
-                
+
                 <div>
-                    <label for="consult-message" class="block text-gray-700 mb-2">Project Details</label>
-                    <textarea id="consult-message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <label for="contactMessage" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Message</label>
+                    <textarea id="contactMessage" name="message" rows="4" 
+                              class="w-full px-4 py-3 bg-white/50 dark:bg-dark/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300"></textarea>
                 </div>
-                
-                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+
+                <button type="submit" 
+                        class="w-full bg-gradient-to-r from-primary to-accent text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover-lift transition-all duration-300 transform hover:scale-105">
                     Submit Request
                 </button>
             </form>
         </div>
     </div>
 
+    <!-- Success Toast -->
+    <div id="successToast" class="fixed top-4 right-4 glass dark:glass-dark p-4 rounded-xl shadow-lg border-l-4 border-green-500 transform translate-x-full transition-transform duration-300 z-50 hidden">
+        <div class="flex items-center space-x-3">
+            <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+            <span class="text-gray-800 dark:text-white">Copied to clipboard!</span>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
+        // Initialize dark mode based on system preference
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('animate-fade-in');
+        }
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+        }
+
+        // Smooth scrolling for anchor links
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Demo toggle functionality
+        document.getElementById('inputToggle').addEventListener('click', function() {
+            document.getElementById('inputDisplay').classList.remove('hidden');
+            document.getElementById('outputDisplay').classList.add('hidden');
+            this.classList.add('bg-primary', 'text-white');
+            this.classList.remove('text-gray-400');
+            document.getElementById('outputToggle').classList.remove('bg-primary', 'text-white');
+            document.getElementById('outputToggle').classList.add('text-gray-400');
         });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
+
+        document.getElementById('outputToggle').addEventListener('click', function() {
+            document.getElementById('inputDisplay').classList.add('hidden');
+            document.getElementById('outputDisplay').classList.remove('hidden');
+            this.classList.add('bg-primary', 'text-white');
+            this.classList.remove('text-gray-400');
+            document.getElementById('inputToggle').classList.remove('bg-primary', 'text-white');
+            document.getElementById('inputToggle').classList.add('text-gray-400');
         });
-        
-        // Stats Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stats-counter');
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const suffix = counter.textContent.includes('%') ? '%' : '';
-                let count = 0;
-                const duration = 2000; // 2 seconds
-                const increment = target / (duration / 16); // 60fps
-                
-                const updateCount = () => {
-                    count += increment;
-                    if (count < target) {
-                        counter.textContent = Math.floor(count) + suffix;
-                        setTimeout(updateCount, 16);
-                    } else {
-                        counter.textContent = target + suffix;
-                    }
-                };
-                
-                updateCount();
+
+        // Copy to clipboard functionality
+        function copyToClipboard() {
+            const textToCopy = document.querySelector('.typing-animation').textContent;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                showSuccessToast('Copied to clipboard!');
             });
         }
-        
-        // Tilt Effect for Cards
-        document.querySelectorAll('.tilt-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-                
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateY = (x - centerX) / 25;
-                const rotateX = (centerY - y) / 25;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+
+        function showSuccessToast(message) {
+            const toast = document.getElementById('successToast');
+            toast.querySelector('span').textContent = message;
+            toast.classList.remove('hidden', 'translate-x-full');
+            setTimeout(() => {
+                toast.classList.add('translate-x-full');
+                setTimeout(() => toast.classList.add('hidden'), 300);
+            }, 2000);
+        }
+
+        // Contact modal functionality
+        function openContactModal() {
+            document.getElementById('contactModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Contact form handling
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Basic validation
+                const requiredFields = this.querySelectorAll('[required]');
+                let isValid = true;
+
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        field.classList.add('border-red-500');
+                    } else {
+                        field.classList.remove('border-red-500');
+                    }
+                });
+
+                if (isValid) {
+                    // Simulate form submission
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+
+                    setTimeout(() => {
+                        showSuccessToast('Request submitted successfully!');
+                        this.reset();
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                        closeContactModal();
+                    }, 1500);
+                }
             });
         });
-        
+
+        // Pricing toggle functionality
+        document.getElementById('monthlyToggle').addEventListener('click', function() {
+            this.classList.add('bg-primary', 'text-white');
+            this.classList.remove('text-gray-600', 'dark:text-gray-300');
+            document.getElementById('yearlyToggle').classList.remove('bg-primary', 'text-white');
+            document.getElementById('yearlyToggle').classList.add('text-gray-600', 'dark:text-gray-300');
+
+            // Update prices (in a real app, this would be more dynamic)
+            document.querySelectorAll('.text-4xl.font-bold.text-primary').forEach(price => {
+                const currentPrice = price.textContent;
+                if (currentPrice.includes('₹799')) {
+                    price.textContent = '₹999';
+                } else if (currentPrice.includes('₹3,999')) {
+                    price.textContent = '₹4,999';
+                }
+            });
+        });
+
+        document.getElementById('yearlyToggle').addEventListener('click', function() {
+            this.classList.add('bg-primary', 'text-white');
+            this.classList.remove('text-gray-600', 'dark:text-gray-300');
+            document.getElementById('monthlyToggle').classList.remove('bg-primary', 'text-white');
+            document.getElementById('monthlyToggle').classList.add('text-gray-600', 'dark:text-gray-300');
+
+            // Update prices (in a real app, this would be more dynamic)
+            document.querySelectorAll('.text-4xl.font-bold.text-primary').forEach(price => {
+                const currentPrice = price.textContent;
+                if (currentPrice.includes('₹999')) {
+                    price.textContent = '₹799';
+                } else if (currentPrice.includes('₹4,999')) {
+                    price.textContent = '₹3,999';
+                }
+            });
+        });
+
+        // Solution filtering
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            chip.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+
+                // Update active state
+                document.querySelectorAll('.filter-chip').forEach(c => {
+                    c.classList.remove('active', 'bg-primary', 'text-white');
+                    c.classList.add('glass', 'dark:glass-dark', 'text-gray-600', 'dark:text-gray-300');
+                });
+                this.classList.add('active', 'bg-primary', 'text-white');
+                this.classList.remove('glass', 'dark:glass-dark', 'text-gray-600', 'dark:text-gray-300');
+
+                // Filter cards
+                document.querySelectorAll('.solution-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                        card.classList.add('animate-fade-in');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('animate-fade-in');
+                    }
+                });
+            });
+        });
+
+        // Card tilt effect (desktop only)
+        if (window.matchMedia('(hover: hover)').matches) {
+            document.querySelectorAll('.feature-card, .solution-card, .team-card, .testimonial-card').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateY = (x - centerX) / 25;
+                    const rotateX = (centerY - y) / 25;
+
+                    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(0, -5px, 0)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translate3d(0, 0, 0)';
+                });
+            });
+        }
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Animate counters when stats section is visible
-                    if (entry.target.classList.contains('stats-counter')) {
-                        animateCounters();
-                    }
+                    entry.target.style.animationPlayState = 'running';
                 }
             });
         }, observerOptions);
-        
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+
+        // Observe all animated elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-in');
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
             });
         });
-        
-        // Consultation Modal
-        const consultationButtons = document.querySelectorAll('button:contains("Request Consultation"), button:contains("Schedule a Demo")');
-        const consultationModal = document.getElementById('consultation-modal');
-        const closeModal = document.getElementById('close-modal');
-        
-        consultationButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                consultationModal.classList.remove('hidden');
-            });
-        });
-        
-        closeModal.addEventListener('click', () => {
-            consultationModal.classList.add('hidden');
-        });
-        
-        // Close modal when clicking outside
-        consultationModal.addEventListener('click', (e) => {
-            if (e.target === consultationModal) {
-                consultationModal.classList.add('hidden');
+
+        // Close modal on outside click
+        document.getElementById('contactModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('contactModal')) {
+                closeContactModal();
             }
         });
+
+        // Handle reduced motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('*').forEach(el => {
+                el.style.animation = 'none';
+                el.style.transition = 'none';
+            });
+        }
     </script>
 </body>
 </html>
