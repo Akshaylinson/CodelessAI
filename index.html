@@ -1,15 +1,13 @@
-<!-- Generated for CodelessAI — AI division of Codeless Technologies. Focus: AI integrations, databases, APIs, MPC, automations, no-code, AI+Blockchain. -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodelessAI - AI & Automation Division of Codeless Technologies</title>
+    <title>CodelessAI - Enterprise AI & Automation Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-        
         :root {
             --primary: #2563eb;
             --primary-dark: #1d4ed8;
@@ -18,9 +16,16 @@
             --gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #06b6d4 100%);
         }
         
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         .glass {
@@ -83,8 +88,220 @@
             transform: translateY(0);
         }
         
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.5), transparent);
+        }
+        
+        .stats-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .tech-stack-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-stack-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .case-study-card {
+            transition: all 0.3s ease;
+        }
+        
+        .case-study-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Architecture Visualization Styles */
+        .architecture-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 1rem;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .architecture-layer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .layer-label {
+            position: absolute;
+            left: 0;
+            font-weight: 600;
+            color: #4b5563;
+            font-size: 0.875rem;
+            width: 120px;
+        }
+        
+        .architecture-node {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1rem 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            min-width: 160px;
+            max-width: 200px;
+        }
+        
+        .architecture-node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .node-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+        
+        .node-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .node-desc {
+            font-size: 0.75rem;
+            color: #6b7280;
+            line-height: 1.4;
+        }
+        
+        .connector {
+            position: absolute;
+            height: 40px;
+            width: 2px;
+            background: linear-gradient(to bottom, #c7d2fe, #a5b4fc);
+            z-index: 0;
+        }
+        
+        .flow-arrow {
+            position: absolute;
+            color: #a5b4fc;
+            z-index: 1;
+            font-size: 1.25rem;
+        }
+        
+        .data-flow {
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+            border-radius: 2px;
+            z-index: 1;
+        }
+        
+        .flow-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #3b82f6;
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.8); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(0.8); opacity: 1; }
+        }
+        
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .grid-item {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+        
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .grid-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+        
+        .grid-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .grid-desc {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.5;
+        }
+        
+        .tech-pill {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1d4ed8;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .architecture-layer {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .layer-label {
+                position: relative;
+                margin-bottom: 1rem;
+                text-align: center;
+                width: 100%;
+            }
+            
+            .architecture-node {
+                margin-bottom: 1rem;
+            }
+            
+            .connector, .flow-arrow {
+                display: none;
+            }
+        }
+        
         @media (prefers-reduced-motion: reduce) {
-            .floating, .fade-in, .tilt-card {
+            .floating, .fade-in, .tilt-card, .tech-stack-icon, .case-study-card {
                 animation: none;
                 transition: none;
             }
@@ -93,45 +310,50 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 shadow-sm border-b border-gray-100">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"></div>
-                    <span class="text-xl font-bold gradient-text">CodelessAI</span>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">C</span>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold gradient-text">CodelessAI</span>
+                        <p class="text-xs text-gray-500 -mt-1">Division of Codeless Technologies</p>
+                    </div>
                 </div>
                 
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition">Services</a>
-                    <a href="#integrations" class="text-gray-600 hover:text-blue-600 transition">Integrations</a>
-                    <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition">Solutions</a>
-                    <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition">Pricing</a>
-                    <a href="#team" class="text-gray-600 hover:text-blue-600 transition">Team</a>
-                    <a href="#" class="text-gray-600 hover:text-blue-600 transition">Docs</a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#services" class="text-gray-600 hover:text-blue-600 transition font-medium">Services</a>
+                    <a href="#architecture" class="text-gray-600 hover:text-blue-600 transition font-medium">Architecture</a>
+                    <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition font-medium">Solutions</a>
+                    <a href="#case-studies" class="text-gray-600 hover:text-blue-600 transition font-medium">Case Studies</a>
+                    <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition font-medium">Pricing</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition font-medium">About</a>
                 </div>
                 
-                <div class="hidden md:block">
-                    <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:shadow-lg transition-all">
+                <div class="hidden lg:block">
+                    <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg font-medium hover:shadow-lg transition-all">
                         Request Consultation
                     </button>
                 </div>
                 
-                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-600">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 w-full bg-white shadow-lg">
+        <div id="mobile-menu" class="mobile-menu lg:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100">
             <div class="flex flex-col p-4 space-y-4">
-                <a href="#services" class="text-gray-600 hover:text-blue-600 transition py-2">Services</a>
-                <a href="#integrations" class="text-gray-600 hover:text-blue-600 transition py-2">Integrations</a>
-                <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition py-2">Solutions</a>
-                <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition py-2">Pricing</a>
-                <a href="#team" class="text-gray-600 hover:text-blue-600 transition py-2">Team</a>
-                <a href="#" class="text-gray-600 hover:text-blue-600 transition py-2">Docs</a>
-                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg font-medium mt-4">
+                <a href="#services" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Services</a>
+                <a href="#architecture" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Architecture</a>
+                <a href="#solutions" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Solutions</a>
+                <a href="#case-studies" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Case Studies</a>
+                <a href="#pricing" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">Pricing</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition py-2 font-medium">About</a>
+                <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-lg font-medium mt-4">
                     Request Consultation
                 </button>
             </div>
@@ -139,7 +361,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-20 px-4 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
+    <section class="pt-32 pb-24 px-4 bg-gradient-to-br from-blue-50 via-white to-purple-50 relative overflow-hidden">
         <div class="absolute top-10 right-10 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-floating"></div>
         <div class="absolute bottom-10 left-10 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-floating" style="animation-delay: 2s;"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-floating" style="animation-delay: 4s;"></div>
@@ -147,622 +369,682 @@
         <div class="container mx-auto max-w-6xl">
             <div class="flex flex-col lg:flex-row items-center">
                 <div class="lg:w-1/2 mb-10 lg:mb-0 fade-in">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                        <span class="block">CodelessAI</span>
-                        <span class="block text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-600 mt-2">
-                            The AI & Automation Division of Codeless Technologies.
-                        </span>
+                    <div class="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+                        <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                        Enterprise AI & Automation Division
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <span class="block">Transform Your Business</span>
+                        <span class="block gradient-text">With Intelligent Automation</span>
                     </h1>
                     <p class="text-lg text-gray-600 mb-8 max-w-xl">
-                        Delivering enterprise-grade AI integrations, automation systems, API architecture, MPC security, database engineering, no-code platform support, and AI+Blockchain capabilities.
+                        CodelessAI delivers enterprise-grade AI integrations, automation systems, API architecture, MPC security, database engineering, no-code platform support, and AI+Blockchain capabilities.
                     </p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-medium hover:shadow-lg transition-all">
-                            Explore Services
+                        <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3.5 rounded-lg font-medium hover:shadow-lg transition-all flex items-center justify-center">
+                            <span>Explore Solutions</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
                         </button>
-                        <button class="border border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-medium hover:bg-blue-50 transition-all">
-                            Request Consultation
+                        <button class="border border-blue-600 text-blue-600 px-8 py-3.5 rounded-lg font-medium hover:bg-blue-50 transition-all flex items-center justify-center">
+                            <i class="fas fa-play-circle mr-2"></i>
+                            <span>Watch Demo</span>
                         </button>
+                    </div>
+                    
+                    <div class="flex items-center mt-10 space-x-6">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 bg-blue-500 rounded-full border-2 border-white"></div>
+                            <div class="w-8 h-8 bg-purple-500 rounded-full border-2 border-white"></div>
+                            <div class="w-8 h-8 bg-cyan-500 rounded-full border-2 border-white"></div>
+                            <div class="w-8 h-8 bg-gray-300 rounded-full border-2 border-white flex items-center justify-center text-xs text-gray-600">+12</div>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <span class="font-semibold">200+</span> enterprises trust our solutions
+                        </div>
                     </div>
                 </div>
                 
                 <div class="lg:w-1/2 flex justify-center fade-in">
-                    <div class="glass rounded-2xl p-6 shadow-2xl max-w-md w-full">
-                        <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white p-4 rounded-xl mb-6">
-                            <h3 class="font-bold text-lg mb-2">Tech Architecture Preview</h3>
-                            <div class="space-y-3 text-sm">
-                                <div class="flex items-center">
-                                    <div class="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
-                                    <span>Client</span>
-                                    <i class="fas fa-arrow-right mx-3 text-xs"></i>
-                                </div>
-                                <div class="flex items-center ml-6">
-                                    <div class="w-3 h-3 bg-blue-400 rounded-full mr-3"></div>
-                                    <span>API Gateway</span>
-                                    <i class="fas fa-arrow-right mx-3 text-xs"></i>
-                                </div>
-                                <div class="flex items-center ml-12">
-                                    <div class="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
-                                    <span>CodelessAI Engine</span>
-                                    <i class="fas fa-arrow-right mx-3 text-xs"></i>
-                                </div>
-                                <div class="flex items-center ml-18">
-                                    <div class="flex space-x-4">
-                                        <div class="flex items-center">
-                                            <div class="w-3 h-3 bg-cyan-400 rounded-full mr-2"></div>
-                                            <span>Database</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <div class="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
-                                            <span>MPC</span>
-                                        </div>
+                    <div class="relative">
+                        <div class="glass rounded-2xl p-6 shadow-2xl max-w-md w-full">
+                            <div class="bg-gradient-to-br from-blue-500 to-purple-600 text-white p-4 rounded-xl mb-6">
+                                <h3 class="font-bold text-lg mb-2">Enterprise AI Architecture</h3>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-400 rounded-full mr-3"></div>
+                                        <span>Client Applications</span>
+                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
                                     </div>
-                                    <i class="fas fa-arrow-right mx-3 text-xs"></i>
+                                    <div class="flex items-center ml-6">
+                                        <div class="w-3 h-3 bg-blue-400 rounded-full mr-3"></div>
+                                        <span>API Gateway & Security</span>
+                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
+                                    </div>
+                                    <div class="flex items-center ml-12">
+                                        <div class="w-3 h-3 bg-purple-400 rounded-full mr-3"></div>
+                                        <span>CodelessAI Engine</span>
+                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
+                                    </div>
+                                    <div class="flex items-center ml-18">
+                                        <div class="flex space-x-4">
+                                            <div class="flex items-center">
+                                                <div class="w-3 h-3 bg-cyan-400 rounded-full mr-2"></div>
+                                                <span>Data Pipeline</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <div class="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
+                                                <span>MPC Layer</span>
+                                            </div>
+                                        </div>
+                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
+                                    </div>
+                                    <div class="flex items-center ml-24">
+                                        <div class="w-3 h-3 bg-pink-400 rounded-full mr-3"></div>
+                                        <span>Automation Engine</span>
+                                        <i class="fas fa-arrow-right mx-3 text-xs"></i>
+                                    </div>
+                                    <div class="flex items-center ml-30">
+                                        <div class="w-3 h-3 bg-indigo-400 rounded-full mr-3"></div>
+                                        <span>Blockchain Integration</span>
+                                    </div>
                                 </div>
-                                <div class="flex items-center ml-24">
-                                    <div class="w-3 h-3 bg-pink-400 rounded-full mr-3"></div>
-                                    <span>Automations</span>
-                                    <i class="fas fa-arrow-right mx-3 text-xs"></i>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                                    <i class="fas fa-brain text-blue-500 mb-2"></i>
+                                    <p class="font-medium">AI Model Orchestration</p>
                                 </div>
-                                <div class="flex items-center ml-30">
-                                    <div class="w-3 h-3 bg-indigo-400 rounded-full mr-3"></div>
-                                    <span>Blockchain Layer</span>
+                                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                                    <i class="fas fa-database text-purple-500 mb-2"></i>
+                                    <p class="font-medium">Secure Data Pipelines</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                                    <i class="fas fa-shield-alt text-cyan-500 mb-2"></i>
+                                    <p class="font-medium">MPC Security Layer</p>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg shadow-sm border border-gray-100">
+                                    <i class="fas fa-link text-green-500 mb-2"></i>
+                                    <p class="font-medium">Blockchain Integration</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="grid grid-cols-2 gap-4 text-sm">
-                            <div class="bg-white p-3 rounded-lg shadow-sm">
-                                <i class="fas fa-brain text-blue-500 mb-2"></i>
-                                <p>AI Model Orchestration</p>
+                        
+                        <!-- Floating elements -->
+                        <div class="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-3 w-24 floating">
+                            <div class="text-center">
+                                <i class="fas fa-rocket text-blue-500 text-xl mb-1"></i>
+                                <p class="text-xs font-medium">Fast Deployment</p>
                             </div>
-                            <div class="bg-white p-3 rounded-lg shadow-sm">
-                                <i class="fas fa-database text-purple-500 mb-2"></i>
-                                <p>Secure Data Pipelines</p>
-                            </div>
-                            <div class="bg-white p-3 rounded-lg shadow-sm">
-                                <i class="fas fa-shield-alt text-cyan-500 mb-2"></i>
-                                <p>MPC Security</p>
-                            </div>
-                            <div class="bg-white p-3 rounded-lg shadow-sm">
-                                <i class="fas fa-link text-green-500 mb-2"></i>
-                                <p>Blockchain Integration</p>
+                        </div>
+                        
+                        <div class="absolute -bottom-4 -left-4 bg-white rounded-lg shadow-lg p-3 w-24 floating" style="animation-delay: 2s;">
+                            <div class="text-center">
+                                <i class="fas fa-shield-check text-green-500 text-xl mb-1"></i>
+                                <p class="text-xs font-medium">Enterprise Security</p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto max-w-6xl px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2 stats-counter" data-target="200">0</div>
+                    <p class="text-gray-600">Enterprise Clients</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-purple-600 mb-2 stats-counter" data-target="350">0</div>
+                    <p class="text-gray-600">Projects Delivered</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-cyan-600 mb-2 stats-counter" data-target="99.5">0</div>
+                    <p class="text-gray-600">Uptime SLA</p>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-3xl md:text-4xl font-bold text-green-600 mb-2 stats-counter" data-target="40">0</div>
+                    <p class="text-gray-600">Cost Reduction Avg.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 px-4 bg-white">
+    <section id="services" class="py-20 px-4 bg-gray-50">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Core Services</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Advanced AI systems, integrations, backend automation, and scalable technical infrastructure.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Enterprise AI Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Comprehensive AI integration and automation solutions for modern enterprises</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service Card 1 -->
-                <div class="gradient-border rounded-2xl p-6 tilt-card fade-in">
-                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-brain text-blue-600 text-xl"></i>
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
+                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-blue-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">AI Integrations & Model Orchestration</h3>
-                    <p class="text-gray-600">Connect any AI provider, route tasks intelligently, and build scalable AI-driven systems.</p>
+                    <p class="text-gray-600 mb-4">Connect any AI provider, route tasks intelligently, and build scalable AI-driven systems with provider-agnostic pipelines.</p>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Multi-provider AI model orchestration</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Intelligent task routing & load balancing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Provider-agnostic API pipelines</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
                 </div>
                 
                 <!-- Service Card 2 -->
-                <div class="gradient-border rounded-2xl p-6 tilt-card fade-in">
-                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-code text-purple-600 text-xl"></i>
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
+                    <div class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-code text-purple-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">API Engineering & Backend Architecture</h3>
-                    <p class="text-gray-600">Production-ready REST APIs, secure authentication, scalable backend flows.</p>
+                    <p class="text-gray-600 mb-4">Production-ready REST APIs, secure authentication, scalable backend flows, and microservices architecture.</p>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Enterprise-grade REST API design</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Secure authentication & authorization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Microservices architecture</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
                 </div>
                 
                 <!-- Service Card 3 -->
-                <div class="gradient-border rounded-2xl p-6 tilt-card fade-in">
-                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-database text-cyan-600 text-xl"></i>
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
+                    <div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-database text-cyan-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Database & Data Pipeline Engineering</h3>
-                    <p class="text-gray-600">Optimized database design, real-time syncing, versioning, and secure data workflows.</p>
+                    <p class="text-gray-600 mb-4">Optimized database design, real-time syncing, versioning, and secure data workflows for enterprise applications.</p>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Optimized database architecture</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Real-time data synchronization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Secure data workflows</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
                 </div>
                 
                 <!-- Service Card 4 -->
-                <div class="gradient-border rounded-2xl p-6 tilt-card fade-in">
-                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
+                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-alt text-green-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">MPC & Secure Computation</h3>
-                    <p class="text-gray-600">Privacy-preserving multi-party computation workflows for sensitive data operations.</p>
+                    <p class="text-gray-600 mb-4">Privacy-preserving multi-party computation workflows for sensitive data operations and regulatory compliance.</p>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Privacy-preserving data analytics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Secure multi-party computation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Regulatory compliance solutions</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
                 </div>
                 
                 <!-- Service Card 5 -->
-                <div class="gradient-border rounded-2xl p-6 tilt-card fade-in">
-                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-robot text-yellow-600 text-xl"></i>
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-robot text-yellow-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Automations & No-Code Platforms</h3>
-                    <p class="text-gray-600">End-to-end workflow automation using no-code platforms, Python, and Sheets-based pipelines.</p>
+                    <p class="text-gray-600 mb-4">End-to-end workflow automation using no-code platforms, Python, and Sheets-based pipelines for business efficiency.</p>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>No-code workflow automation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Python-based automation scripts</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Sheets-based pipeline automation</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
                 </div>
                 
                 <!-- Service Card 6 -->
-                <div class="gradient-border rounded-2xl p-6 tilt-card fade-in">
-                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                        <i class="fas fa-link text-indigo-600 text-xl"></i>
+                <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 tilt-card fade-in border border-gray-100">
+                    <div class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-link text-indigo-600 text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">AI + Blockchain Systems</h3>
-                    <p class="text-gray-600">On-chain automation, verifiable AI processes, token-gated access, decentralized logic.</p>
+                    <p class="text-gray-600 mb-4">On-chain automation, verifiable AI processes, token-gated access, and decentralized logic for next-gen applications.</p>
+                    <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>On-chain AI automation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Verifiable AI processes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Token-gated access control</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-blue-600 font-medium flex items-center">
+                        <span>Learn more</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Integrations Section -->
-    <section id="integrations" class="py-20 px-4 bg-gray-50">
+    <!-- Architecture Section -->
+    <section id="architecture" class="py-20 px-4 bg-white">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Seamless Integrations</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Connect with your existing tech stack and workflows</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Enterprise AI Architecture</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">A comprehensive visualization of how CodelessAI integrates AI capabilities into enterprise systems</p>
             </div>
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                <!-- Integration 1 -->
-                <div class="glass bg-white/50 rounded-xl p-6 flex flex-col items-center justify-center fade-in">
-                    <i class="fas fa-robot text-blue-500 text-3xl mb-3"></i>
-                    <p class="font-medium text-center">AI Providers</p>
+            <div class="architecture-container mb-12">
+                <!-- Data Sources Layer -->
+                <div class="architecture-layer">
+                    <div class="layer-label">Data Sources</div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="architecture-node">
+                            <div class="node-icon bg-blue-100 text-blue-600">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="node-title">Databases</div>
+                            <div class="node-desc">SQL, NoSQL, Data Warehouses</div>
+                        </div>
+                        <div class="architecture-node">
+                            <div class="node-icon bg-purple-100 text-purple-600">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="node-title">Cloud Storage</div>
+                            <div class="node-desc">S3, Blob Storage, Cloud Files</div>
+                        </div>
+                        <div class="architecture-node">
+                            <div class="node-icon bg-green-100 text-green-600">
+                                <i class="fas fa-stream"></i>
+                            </div>
+                            <div class="node-title">Data Streams</div>
+                            <div class="node-desc">Kafka, Event Hubs, Pub/Sub</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Integration 2 -->
-                <div class="glass bg-white/50 rounded-xl p-6 flex flex-col items-center justify-center fade-in">
-                    <i class="fas fa-puzzle-piece text-purple-500 text-3xl mb-3"></i>
-                    <p class="font-medium text-center">No-Code Platforms</p>
+                <!-- Data Flow Arrow -->
+                <div class="connector left-1/2 transform -translate-x-1/2 top-40"></div>
+                <div class="flow-arrow left-1/2 transform -translate-x-1/2 top-44">
+                    <i class="fas fa-arrow-down"></i>
                 </div>
                 
-                <!-- Integration 3 -->
-                <div class="glass bg-white/50 rounded-xl p-6 flex flex-col items-center justify-center fade-in">
-                    <i class="fas fa-database text-cyan-500 text-3xl mb-3"></i>
-                    <p class="font-medium text-center">Databases</p>
+                <!-- Ingestion & Processing Layer -->
+                <div class="architecture-layer">
+                    <div class="layer-label">Ingestion & Processing</div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="architecture-node">
+                            <div class="node-icon bg-cyan-100 text-cyan-600">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="node-title">Data Pipelines</div>
+                            <div class="node-desc">ETL/ELT, Data Transformation</div>
+                        </div>
+                        <div class="architecture-node">
+                            <div class="node-icon bg-indigo-100 text-indigo-600">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="node-title">MPC Security</div>
+                            <div class="node-desc">Privacy-Preserving Computation</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Integration 4 -->
-                <div class="glass bg-white/50 rounded-xl p-6 flex flex-col items-center justify-center fade-in">
-                    <i class="fas fa-network-wired text-green-500 text-3xl mb-3"></i>
-                    <p class="font-medium text-center">API Gateways</p>
+                <!-- Data Flow Arrow -->
+                <div class="connector left-1/2 transform -translate-x-1/2 top-80"></div>
+                <div class="flow-arrow left-1/2 transform -translate-x-1/2 top-84">
+                    <i class="fas fa-arrow-down"></i>
                 </div>
                 
-                <!-- Integration 5 -->
-                <div class="glass bg-white/50 rounded-xl p-6 flex flex-col items-center justify-center fade-in">
-                    <i class="fab fa-ethereum text-indigo-500 text-3xl mb-3"></i>
-                    <p class="font-medium text-center">Blockchain Networks</p>
+                <!-- CodelessAI Engine Layer -->
+                <div class="architecture-layer">
+                    <div class="layer-label">CodelessAI Engine</div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="architecture-node relative bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg">
+                            <div class="node-icon bg-white/20 text-white">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="node-title">AI Orchestration</div>
+                            <div class="node-desc">Model Routing & Management</div>
+                        </div>
+                        <div class="architecture-node">
+                            <div class="node-icon bg-yellow-100 text-yellow-600">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="node-title">AI Models</div>
+                            <div class="node-desc">Multi-Provider AI Services</div>
+                        </div>
+                        <div class="architecture-node">
+                            <div class="node-icon bg-red-100 text-red-600">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="node-title">Automation Engine</div>
+                            <div class="node-desc">Workflow Automation</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Integration 6 -->
-                <div class="glass bg-white/50 rounded-xl p-6 flex flex-col items-center justify-center fade-in">
-                    <i class="fas fa-cogs text-yellow-500 text-3xl mb-3"></i>
-                    <p class="font-medium text-center">Automation Tools</p>
+                <!-- Data Flow Arrow -->
+                <div class="connector left-1/2 transform -translate-x-1/2 top-120"></div>
+                <div class="flow-arrow left-1/2 transform -translate-x-1/2 top-124">
+                    <i class="fas fa-arrow-down"></i>
+                </div>
+                
+                <!-- Output & Integration Layer -->
+                <div class="architecture-layer">
+                    <div class="layer-label">Output & Integration</div>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="architecture-node">
+                            <div class="node-icon bg-blue-100 text-blue-600">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="node-title">APIs</div>
+                            <div class="node-desc">REST, GraphQL, Webhooks</div>
+                        </div>
+                        <div class="architecture-node">
+                            <div class="node-icon bg-green-100 text-green-600">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <div class="node-title">Blockchain</div>
+                            <div class="node-desc">Smart Contracts, Verification</div>
+                        </div>
+                        <div class="architecture-node">
+                            <div class="node-icon bg-purple-100 text-purple-600">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="node-title">Applications</div>
+                            <div class="node-desc">Web, Mobile, Internal Tools</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Animated Data Flow -->
+                <div class="data-flow left-1/2 transform -translate-x-1/2 top-20 h-80"></div>
+                <div class="flow-dot left-1/2 transform -translate-x-1/2 top-24 floating"></div>
+                <div class="flow-dot left-1/2 transform -translate-x-1/2 top-48 floating" style="animation-delay: 0.5s;"></div>
+                <div class="flow-dot left-1/2 transform -translate-x-1/2 top-72 floating" style="animation-delay: 1s;"></div>
+                <div class="flow-dot left-1/2 transform -translate-x-1/2 top-96 floating" style="animation-delay: 1.5s;"></div>
+            </div>
+            
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold mb-6 text-center">Key Architecture Components</h2>
+                <div class="architecture-grid">
+                    <div class="grid-item">
+                        <div class="grid-icon bg-blue-100 text-blue-600">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="grid-title">Unified Data Layer</h3>
+                        <p class="grid-desc">Connect to multiple data sources with secure, standardized access patterns and real-time synchronization.</p>
+                        <div class="mt-3">
+                            <span class="tech-pill">SQL</span>
+                            <span class="tech-pill">NoSQL</span>
+                            <span class="tech-pill">APIs</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="grid-icon bg-purple-100 text-purple-600">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="grid-title">MPC Security Layer</h3>
+                        <p class="grid-desc">Privacy-preserving computation for sensitive data without exposing raw information to AI models.</p>
+                        <div class="mt-3">
+                            <span class="tech-pill">Encryption</span>
+                            <span class="tech-pill">Zero-Knowledge</span>
+                            <span class="tech-pill">GDPR</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="grid-icon bg-cyan-100 text-cyan-600">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 class="grid-title">AI Orchestration</h3>
+                        <p class="grid-desc">Intelligent routing between multiple AI providers with failover, load balancing, and cost optimization.</p>
+                        <div class="mt-3">
+                            <span class="tech-pill">OpenAI</span>
+                            <span class="tech-pill">Anthropic</span>
+                            <span class="tech-pill">Azure AI</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="grid-icon bg-green-100 text-green-600">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="grid-title">Automation Engine</h3>
+                        <p class="grid-desc">Workflow automation with conditional logic, error handling, and integration with no-code platforms.</p>
+                        <div class="mt-3">
+                            <span class="tech-pill">Zapier</span>
+                            <span class="tech-pill">Make</span>
+                            <span class="tech-pill">n8n</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="grid-icon bg-yellow-100 text-yellow-600">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="grid-title">API Gateway</h3>
+                        <p class="grid-desc">Unified API layer with authentication, rate limiting, monitoring, and seamless integration capabilities.</p>
+                        <div class="mt-3">
+                            <span class="tech-pill">REST</span>
+                            <span class="tech-pill">GraphQL</span>
+                            <span class="tech-pill">Webhooks</span>
+                        </div>
+                    </div>
+                    
+                    <div class="grid-item">
+                        <div class="grid-icon bg-indigo-100 text-indigo-600">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3 class="grid-title">Blockchain Integration</h3>
+                        <p class="grid-desc">On-chain verification of AI processes, token-gated access, and immutable audit trails.</p>
+                        <div class="mt-3">
+                            <span class="tech-pill">Ethereum</span>
+                            <span class="tech-pill">Polygon</span>
+                            <span class="tech-pill">Smart Contracts</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-            <div class="mt-12 text-center fade-in">
-                <p class="text-gray-600 mb-6">And many more integrations available</p>
-                <button class="border border-blue-600 text-blue-600 px-6 py-2 rounded-lg font-medium hover:bg-blue-50 transition-all">
-                    View All Integrations
-                </button>
+            <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+                <h2 class="text-2xl font-bold mb-6">How It Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-upload text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">1. Data Ingestion</h3>
+                        <p class="text-gray-600 text-sm">Connect your data sources - databases, APIs, cloud storage, or real-time streams.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-cogs text-purple-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">2. AI Processing</h3>
+                        <p class="text-gray-600 text-sm">CodelessAI orchestrates AI models, applies security, and runs automations.</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-rocket text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">3. Action & Integration</h3>
+                        <p class="text-gray-600 text-sm">Results are delivered via APIs, automations, or blockchain-verified processes.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Solutions Section -->
-    <section id="solutions" class="py-20 px-4 bg-white">
+    <section id="solutions" class="py-20 px-4 bg-gray-50">
         <div class="container mx-auto max-w-6xl">
             <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Tailored Solutions</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Real-world applications of our AI and automation expertise</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Industry Solutions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Tailored AI and automation solutions for your industry challenges</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Solution 1 -->
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 fade-in">
-                    <h3 class="text-xl font-bold mb-3">Enterprise AI Automation Systems</h3>
-                    <ul class="text-gray-600 space-y-2 mb-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Streamlined business processes with AI decision-making</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Reduced operational costs by 40-60%</span>
-                        </li>
-                    </ul>
+                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 fade-in border border-blue-100">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-industry text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Manufacturing & Supply Chain</h3>
+                    <p class="text-gray-600 mb-4">AI-powered predictive maintenance, inventory optimization, and supply chain automation.</p>
+                    <div class="flex items-center text-blue-600 font-medium">
+                        <span>View case study</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </div>
                 </div>
                 
                 <!-- Solution 2 -->
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 fade-in">
-                    <h3 class="text-xl font-bold mb-3">API-led SaaS Architecture</h3>
-                    <ul class="text-gray-600 space-y-2 mb-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Scalable microservices with secure API gateways</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Faster time-to-market for new features</span>
-                        </li>
-                    </ul>
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 fade-in border border-purple-100">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-university text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Financial Services</h3>
+                    <p class="text-gray-600 mb-4">Fraud detection, algorithmic trading, regulatory compliance, and customer service automation.</p>
+                    <div class="flex items-center text-purple-600 font-medium">
+                        <span>View case study</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </div>
                 </div>
                 
                 <!-- Solution 3 -->
-                <div class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 fade-in">
-                    <h3 class="text-xl font-bold mb-3">MPC-secured Data Workflows</h3>
-                    <ul class="text-gray-600 space-y-2 mb-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Privacy-preserving analytics on sensitive data</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Compliant with GDPR and other regulations</span>
-                        </li>
-                    </ul>
+                <div class="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 fade-in border border-cyan-100">
+                    <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-heartbeat text-cyan-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Healthcare & Life Sciences</h3>
+                    <p class="text-gray-600 mb-4">Patient data analysis, drug discovery acceleration, and medical imaging diagnostics.</p>
+                    <div class="flex items-center text-cyan-600 font-medium">
+                        <span>View case study</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </div>
                 </div>
                 
                 <!-- Solution 4 -->
-                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 fade-in">
-                    <h3 class="text-xl font-bold mb-3">AI + Blockchain Compliance & Traceability</h3>
-                    <ul class="text-gray-600 space-y-2 mb-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Immutable audit trails for AI decisions</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Verifiable AI processes for regulatory compliance</span>
-                        </li>
-                    </ul>
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 fade-in border border-green-100">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-shopping-cart text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Retail & E-commerce</h3>
+                    <p class="text-gray-600 mb-4">Personalized recommendations, inventory management, and customer service automation.</p>
+                    <div class="flex items-center text-green-600 font-medium">
+                        <span>View case study</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </div>
                 </div>
                 
                 <!-- Solution 5 -->
-                <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-6 fade-in">
-                    <h3 class="text-xl font-bold mb-3">No-Code Business Process Automation</h3>
-                    <ul class="text-gray-600 space-y-2 mb-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Empowered business users to create automations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Reduced development backlog by 70%</span>
-                        </li>
-                    </ul>
+                <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-6 fade-in border border-yellow-100">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-graduation-cap text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Education & EdTech</h3>
+                    <p class="text-gray-600 mb-4">Personalized learning paths, automated grading, and intelligent tutoring systems.</p>
+                    <div class="flex items-center text-yellow-600 font-medium">
+                        <span>View case study</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </div>
                 </div>
                 
                 <!-- Solution 6 -->
-                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 fade-in">
-                    <h3 class="text-xl font-bold mb-3">AI-powered Internal Tools</h3>
-                    <ul class="text-gray-600 space-y-2 mb-4">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Custom internal tools with AI capabilities</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                            <span>Improved employee productivity and satisfaction</span>
-                        </li>
-                    </ul>
+                <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-6 fade-in border border-indigo-100">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-truck text-indigo-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Logistics & Transportation</h3>
+                    <p class="text-gray-600 mb-4">Route optimization, fleet management, and predictive delivery scheduling.</p>
+                    <div class="flex items-center text-indigo-600 font-medium">
+                        <span>View case study</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-20 px-4 bg-gray-50">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Transparent Pricing</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Choose the plan that fits your AI and automation needs</p>
-                
-                <div class="flex justify-center mt-8">
-                    <div class="bg-white rounded-lg p-1 flex">
-                        <button id="monthly-toggle" class="px-6 py-2 rounded-lg bg-blue-600 text-white font-medium">Monthly</button>
-                        <button id="yearly-toggle" class="px-6 py-2 rounded-lg text-gray-600 font-medium">Yearly (Save 20%)</button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Starter Plan -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-2">Starter</h3>
-                    <p class="text-gray-600 mb-6">Perfect for small teams and projects</p>
-                    
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold" id="starter-price">₹999</span>
-                        <span class="text-gray-600" id="starter-period">/month</span>
-                    </div>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Basic AI integrations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Standard API access</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Community support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Basic automations</span>
-                        </li>
-                    </ul>
-                    
-                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition">
-                        Get Started
-                    </button>
-                </div>
-                
-                <!-- Professional Plan -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg border-2 border-blue-500 relative fade-in">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                        Most Popular
-                    </div>
-                    
-                    <h3 class="text-2xl font-bold mb-2">Professional</h3>
-                    <p class="text-gray-600 mb-6">For growing businesses and advanced use cases</p>
-                    
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold" id="professional-price">₹4,999</span>
-                        <span class="text-gray-600" id="professional-period">/month</span>
-                    </div>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Advanced AI model orchestration</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Priority API access</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Database engineering</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Advanced automations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Email support</span>
-                        </li>
-                    </ul>
-                    
-                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition">
-                        Get Started
-                    </button>
-                </div>
-                
-                <!-- Enterprise Plan -->
-                <div class="bg-white rounded-2xl p-8 shadow-lg fade-in">
-                    <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
-                    <p class="text-gray-600 mb-6">For large organizations with custom needs</p>
-                    
-                    <div class="mb-6">
-                        <span class="text-4xl font-bold">Custom</span>
-                    </div>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Custom AI integrations</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>MPC & secure workflows</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>AI + Blockchain systems</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>Dedicated support</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
-                            <span>SLA guarantees</span>
-                        </li>
-                    </ul>
-                    
-                    <button id="enterprise-contact" class="w-full border border-blue-600 text-blue-600 py-3 rounded-lg font-medium hover:bg-blue-50 transition">
-                        Contact Sales
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section id="team" class="py-20 px-4 bg-white">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    CodelessAI is the AI division of Codeless Technologies, delivering the same services as the parent company but elevated with advanced AI, automation, and system integration capabilities.
-                </p>
-                <p class="text-gray-500 mt-4 italic">
-                    Backed by Codeless Technologies and validated through our industry-grade internship programs.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Team Member 1 -->
-                <div class="text-center fade-in">
-                    <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-500 rounded-full mx-auto mb-4 overflow-hidden">
-                        <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                            <i class="fas fa-user text-white text-4xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold">Alex Chen</h3>
-                    <p class="text-blue-600 mb-2">Head of AI Integrations</p>
-                    <p class="text-gray-600 text-sm">Expertise: AI model orchestration, API architecture, system integration</p>
-                </div>
-                
-                <!-- Team Member 2 -->
-                <div class="text-center fade-in">
-                    <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full mx-auto mb-4 overflow-hidden">
-                        <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                            <i class="fas fa-user text-white text-4xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold">Maya Patel</h3>
-                    <p class="text-blue-600 mb-2">Lead Data Engineer</p>
-                    <p class="text-gray-600 text-sm">Expertise: Database design, data pipelines, MPC workflows</p>
-                </div>
-                
-                <!-- Team Member 3 -->
-                <div class="text-center fade-in">
-                    <div class="w-32 h-32 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full mx-auto mb-4 overflow-hidden">
-                        <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                            <i class="fas fa-user text-white text-4xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold">James Wilson</h3>
-                    <p class="text-blue-600 mb-2">Automation Architect</p>
-                    <p class="text-gray-600 text-sm">Expertise: No-code platforms, workflow orchestration, Sheets automation</p>
-                </div>
-                
-                <!-- Team Member 4 -->
-                <div class="text-center fade-in">
-                    <div class="w-32 h-32 bg-gradient-to-br from-green-400 to-cyan-500 rounded-full mx-auto mb-4 overflow-hidden">
-                        <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                            <i class="fas fa-user text-white text-4xl"></i>
-                        </div>
-                    </div>
-                    <h3 class="text-xl font-bold">Sophia Rodriguez</h3>
-                    <p class="text-blue-600 mb-2">Blockchain Solutions Lead</p>
-                    <p class="text-gray-600 text-sm">Expertise: AI + Blockchain systems, smart contracts, token-gated access</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
-        <div class="container mx-auto max-w-6xl">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Hear from CTOs, developers, and automation specialists</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg fade-in">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-user-tie text-blue-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Rajiv Mehta</h4>
-                            <p class="text-gray-600 text-sm">CTO, FinTech Solutions</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic">
-                        "CodelessAI delivered reliable AI integrations that scaled with our growing user base. Their API architecture is production-ready and secure."
-                    </p>
-                </div>
-                
-                <!-- Testimonial 2 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg fade-in">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-laptop-code text-purple-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Sarah Johnson</h4>
-                            <p class="text-gray-600 text-sm">Lead Developer, SaaS Platform</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic">
-                        "The MPC workflows from CodelessAI allowed us to process sensitive financial data while maintaining privacy and compliance. Game-changing technology."
-                    </p>
-                </div>
-                
-                <!-- Testimonial 3 -->
-                <div class="bg-white rounded-2xl p-6 shadow-lg fade-in">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-cogs text-cyan-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Michael Tan</h4>
-                            <p class="text-gray-600 text-sm">Automation Specialist</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-600 italic">
-                        "Their AI + Blockchain implementation provided the verifiable audit trails we needed for regulatory compliance. Innovative and robust solution."
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-4 bg-white">
-        <div class="container mx-auto max-w-4xl">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Ready to transform your business with AI and automation? Let's talk.</p>
-            </div>
-            
-            <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 shadow-lg fade-in">
-                <form id="contact-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="name" class="block text-gray-700 mb-2">Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                        <div>
-                            <label for="company" class="block text-gray-700 mb-2">Company</label>
-                            <input type="text" id="company" name="company" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <label for="email" class="block text-gray-700 mb-2">Email</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    </div>
-                    
-                    <div>
-                        <label for="service" class="block text-gray-700 mb-2">Service Required</label>
-                        <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="">Select a service</option>
-                            <option value="ai-integrations">AI Integrations & Model Orchestration</option>
-                            <option value="api-engineering">API Engineering & Backend Architecture</option>
-                            <option value="database-engineering">Database & Data Pipeline Engineering</option>
-                            <option value="mpc">MPC & Secure Computation</option>
-                            <option value="automations">Automations & No-Code Platforms</option>
-                            <option value="blockchain">AI + Blockchain Systems</option>
-                            <option value="custom">Custom Solution</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label for="message" class="block text-gray-700 mb-2">Message</label>
-                        <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-medium hover:shadow-lg transition-all">
-                        Send Message
-                    </button>
-                </form>
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in">Ready to Transform Your Business with AI?</h2>
+            <p class="text-xl mb-8 text-blue-100 fade-in">Schedule a consultation with our AI experts to discuss your specific needs and challenges.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 fade-in">
+                <button class="bg-white text-blue-600 px-8 py-3.5 rounded-lg font-medium hover:bg-blue-50 transition-all">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Schedule a Demo
+                </button>
+                <button class="bg-transparent border border-white text-white px-8 py-3.5 rounded-lg font-medium hover:bg-white/10 transition-all">
+                    <i class="fas fa-file-alt mr-2"></i>
+                    Download Brochure
+                </button>
             </div>
         </div>
     </section>
@@ -773,21 +1055,50 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg"></div>
+                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold">C</span>
+                        </div>
                         <span class="text-xl font-bold">CodelessAI</span>
                     </div>
-                    <p class="text-gray-400">
+                    <p class="text-gray-400 mb-4">
                         The AI & Automation Division of Codeless Technologies.
                     </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4">Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">AI Integrations</a></li>
+                        <li><a href="#" class="hover:text-white transition">API Engineering</a></li>
+                        <li><a href="#" class="hover:text-white transition">Data Pipelines</a></li>
+                        <li><a href="#" class="hover:text-white transition">MPC Solutions</a></li>
+                        <li><a href="#" class="hover:text-white transition">Automation</a></li>
+                        <li><a href="#" class="hover:text-white transition">AI + Blockchain</a></li>
+                    </ul>
                 </div>
                 
                 <div>
                     <h3 class="font-bold mb-4">Company</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
-                        <li><a href="#integrations" class="hover:text-white transition">Integrations</a></li>
-                        <li><a href="#solutions" class="hover:text-white transition">Solutions</a></li>
-                        <li><a href="#pricing" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -795,90 +1106,69 @@
                     <h3 class="font-bold mb-4">Resources</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="#" class="hover:text-white transition">Documentation</a></li>
-                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-white transition">API Reference</a></li>
+                        <li><a href="#" class="hover:text-white transition">Whitepapers</a></li>
                         <li><a href="#" class="hover:text-white transition">Support</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2 text-gray-400">
                         <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
                         <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-white transition">Security</a></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 mb-4 md:mb-0">© 2023 CodelessAI / Codeless Technologies. All rights reserved.</p>
-                <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-white transition">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 CodelessAI - Division of Codeless Technologies. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Enterprise Contact Modal -->
-    <div id="enterprise-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
-        <div class="glass rounded-2xl p-8 max-w-md w-full mx-4">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Enterprise Plan</h3>
-                <button id="close-modal" class="text-gray-500 hover:text-gray-700">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
+    <!-- Consultation Modal -->
+    <div id="consultation-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden p-4">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full relative">
+            <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
             
-            <p class="text-gray-600 mb-6">Contact our sales team to discuss custom enterprise solutions tailored to your organization's needs.</p>
+            <h3 class="text-2xl font-bold mb-2">Request Consultation</h3>
+            <p class="text-gray-600 mb-6">Fill out the form below and our team will contact you within 24 hours.</p>
             
             <form class="space-y-4">
                 <div>
-                    <label for="enterprise-name" class="block text-gray-700 mb-2">Name</label>
-                    <input type="text" id="enterprise-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label for="consult-name" class="block text-gray-700 mb-2">Full Name</label>
+                    <input type="text" id="consult-name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 
                 <div>
-                    <label for="enterprise-email" class="block text-gray-700 mb-2">Email</label>
-                    <input type="email" id="enterprise-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label for="consult-email" class="block text-gray-700 mb-2">Work Email</label>
+                    <input type="email" id="consult-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 
                 <div>
-                    <label for="enterprise-company" class="block text-gray-700 mb-2">Company</label>
-                    <input type="text" id="enterprise-company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <label for="consult-company" class="block text-gray-700 mb-2">Company</label>
+                    <input type="text" id="consult-company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
                 </div>
                 
                 <div>
-                    <label for="enterprise-message" class="block text-gray-700 mb-2">Message</label>
-                    <textarea id="enterprise-message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                    <label for="consult-service" class="block text-gray-700 mb-2">Service Interest</label>
+                    <select id="consult-service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Select a service</option>
+                        <option value="ai-integrations">AI Integrations</option>
+                        <option value="api-engineering">API Engineering</option>
+                        <option value="data-pipelines">Data Pipelines</option>
+                        <option value="mpc">MPC Solutions</option>
+                        <option value="automation">Automation</option>
+                        <option value="blockchain">AI + Blockchain</option>
+                    </select>
                 </div>
                 
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition">
-                    Contact Sales
+                <div>
+                    <label for="consult-message" class="block text-gray-700 mb-2">Project Details</label>
+                    <textarea id="consult-message" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition">
+                    Submit Request
                 </button>
             </form>
-        </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div id="success-modal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
-        <div class="glass rounded-2xl p-8 max-w-md w-full mx-4 text-center">
-            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i class="fas fa-check text-green-600 text-2xl"></i>
-            </div>
-            <h3 class="text-2xl font-bold mb-2">Message Sent!</h3>
-            <p class="text-gray-600 mb-6">Thank you for contacting us. We'll get back to you soon.</p>
-            <button id="close-success" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition">
-                Close
-            </button>
         </div>
     </div>
 
@@ -898,66 +1188,30 @@
             });
         });
         
-        // Pricing Toggle
-        const monthlyToggle = document.getElementById('monthly-toggle');
-        const yearlyToggle = document.getElementById('yearly-toggle');
-        const starterPrice = document.getElementById('starter-price');
-        const professionalPrice = document.getElementById('professional-price');
-        const starterPeriod = document.getElementById('starter-period');
-        const professionalPeriod = document.getElementById('professional-period');
-        
-        monthlyToggle.addEventListener('click', () => {
-            monthlyToggle.classList.add('bg-blue-600', 'text-white');
-            monthlyToggle.classList.remove('text-gray-600');
-            yearlyToggle.classList.remove('bg-blue-600', 'text-white');
-            yearlyToggle.classList.add('text-gray-600');
+        // Stats Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter');
             
-            starterPrice.textContent = '₹999';
-            professionalPrice.textContent = '₹4,999';
-            starterPeriod.textContent = '/month';
-            professionalPeriod.textContent = '/month';
-        });
-        
-        yearlyToggle.addEventListener('click', () => {
-            yearlyToggle.classList.add('bg-blue-600', 'text-white');
-            yearlyToggle.classList.remove('text-gray-600');
-            monthlyToggle.classList.remove('bg-blue-600', 'text-white');
-            monthlyToggle.classList.add('text-gray-600');
-            
-            starterPrice.textContent = '₹9,590';
-            professionalPrice.textContent = '₹47,990';
-            starterPeriod.textContent = '/year';
-            professionalPeriod.textContent = '/year';
-        });
-        
-        // Enterprise Modal
-        const enterpriseContact = document.getElementById('enterprise-contact');
-        const enterpriseModal = document.getElementById('enterprise-modal');
-        const closeModal = document.getElementById('close-modal');
-        
-        enterpriseContact.addEventListener('click', () => {
-            enterpriseModal.classList.remove('hidden');
-        });
-        
-        closeModal.addEventListener('click', () => {
-            enterpriseModal.classList.add('hidden');
-        });
-        
-        // Contact Form
-        const contactForm = document.getElementById('contact-form');
-        const successModal = document.getElementById('success-modal');
-        const closeSuccess = document.getElementById('close-success');
-        
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            // In a real application, you would send the form data to a server here
-            successModal.classList.remove('hidden');
-            contactForm.reset();
-        });
-        
-        closeSuccess.addEventListener('click', () => {
-            successModal.classList.add('hidden');
-        });
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const suffix = counter.textContent.includes('%') ? '%' : '';
+                let count = 0;
+                const duration = 2000; // 2 seconds
+                const increment = target / (duration / 16); // 60fps
+                
+                const updateCount = () => {
+                    count += increment;
+                    if (count < target) {
+                        counter.textContent = Math.floor(count) + suffix;
+                        setTimeout(updateCount, 16);
+                    } else {
+                        counter.textContent = target + suffix;
+                    }
+                };
+                
+                updateCount();
+            });
+        }
         
         // Tilt Effect for Cards
         document.querySelectorAll('.tilt-card').forEach(card => {
@@ -974,15 +1228,15 @@
                 const rotateY = (x - centerX) / 25;
                 const rotateX = (centerY - y) / 25;
                 
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
             
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
             });
         });
         
-        // Intersection Observer for fade-in animations
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -992,6 +1246,11 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    
+                    // Animate counters when stats section is visible
+                    if (entry.target.classList.contains('stats-counter')) {
+                        animateCounters();
+                    }
                 }
             });
         }, observerOptions);
@@ -1016,6 +1275,28 @@
                     });
                 }
             });
+        });
+        
+        // Consultation Modal
+        const consultationButtons = document.querySelectorAll('button:contains("Request Consultation"), button:contains("Schedule a Demo")');
+        const consultationModal = document.getElementById('consultation-modal');
+        const closeModal = document.getElementById('close-modal');
+        
+        consultationButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                consultationModal.classList.remove('hidden');
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            consultationModal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        consultationModal.addEventListener('click', (e) => {
+            if (e.target === consultationModal) {
+                consultationModal.classList.add('hidden');
+            }
         });
     </script>
 </body>
