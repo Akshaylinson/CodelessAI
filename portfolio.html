@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - CodelessAI Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        .font-grotesk { font-family: 'Space Grotesk', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-strong { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .tech-gradient { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+        .grid-pattern { background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 50px 50px; }
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #1a1a2e; }
+        ::-webkit-scrollbar-thumb { background: linear-gradient(to bottom, #667eea, #764ba2); border-radius: 5px; }
+        .project-card { transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .project-card:hover { transform: translateY(-10px); }
+        .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)); opacity: 0; transition: opacity 0.3s ease; }
+        .project-card:hover::before { opacity: 1; }
+        .text-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .filter-btn.active { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .glow-blue { box-shadow: 0 0 20px rgba(79, 172, 254, 0.4); }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <div class="fixed inset-0 tech-gradient grid-pattern opacity-90 -z-10"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-strong">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="main.html" class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center glow-blue">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold font-grotesk">Codeless<span class="text-gradient">AI</span></span>
+                </a>
+                <a href="main.html" class="glass-strong px-6 py-2 rounded-full font-semibold hover:bg-white/20 transition">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 px-6">
+        <div class="container mx-auto text-center">
+            <div class="inline-block glass px-4 py-2 rounded-full text-sm font-semibold mb-6">
+                <span class="text-gradient">🚀 AI + Blockchain Innovation</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold font-grotesk leading-tight mb-6">
+                Our <span class="text-gradient">Project</span> Portfolio
+            </h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12">
+                Explore our cutting-edge projects that seamlessly integrate Artificial Intelligence and Blockchain technology to create revolutionary solutions.
+            </p>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="glass-strong rounded-xl p-6">
+                    <div class="text-4xl font-bold text-gradient mb-2">35+</div>
+                    <div class="text-gray-400 text-sm">Projects</div>
+                </div>
+                <div class="glass-strong rounded-xl p-6">
+                    <div class="text-4xl font-bold text-gradient mb-2">$50M+</div>
+                    <div class="text-gray-400 text-sm">Value Delivered</div>
+                </div>
+                <div class="glass-strong rounded-xl p-6">
+                    <div class="text-4xl font-bold text-gradient mb-2">98%</div>
+                    <div class="text-gray-400 text-sm">Success Rate</div>
+                </div>
+                <div class="glass-strong rounded-xl p-6">
+                    <div class="text-4xl font-bold text-gradient mb-2">24/7</div>
+                    <div class="text-gray-400 text-sm">Support</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="py-16 px-6">
+        <div class="container mx-auto">
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1: AI-Powered DeFi Yield Optimizer -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-coins text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI-Powered DeFi Yield Optimizer</h3>
+                        <p class="text-gray-400 text-sm mb-4">Automated yield farming platform using AI to optimize returns across multiple DeFi protocols</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">AI/ML</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Ethereum</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Smart Contracts</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: AI NFT Generation Platform -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-palette text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI NFT Generation Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">Create unique AI-generated NFT art with blockchain verification and smart royalties</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Generative AI</span>
+                            <span class="glass px-2 py-1 rounded text-xs">IPFS</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Polygon</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Blockchain Identity Verification -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-shield-alt text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Blockchain Identity Verification</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-powered KYC system with blockchain-based identity verification and privacy protection</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">AI Vision</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Hyperledger</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Zero-Knowledge</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Predictive Trading Bot -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-chart-line text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Predictive Trading Bot</h3>
+                        <p class="text-gray-400 text-sm mb-4">ML-powered crypto trading bot with sentiment analysis and on-chain data integration</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Deep Learning</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Web3</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Python</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: AI Avatar NFT Marketplace -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-robot text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI Avatar NFT Marketplace</h3>
+                        <p class="text-gray-400 text-sm mb-4">Create personalized AI avatars as NFTs with dynamic traits and evolving characteristics</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">StyleGAN</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Solana</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Metaplex</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Supply Chain AI Tracker -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-pink-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-boxes text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Supply Chain AI Tracker</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-enhanced blockchain supply chain with predictive logistics and fraud detection</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Computer Vision</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Hyperledger</span>
+                            <span class="glass px-2 py-1 rounded text-xs">IoT</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 through 35 continue with similar structure -->
+                <!-- Project 7: Smart Credit Scoring Platform -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-brain text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Smart Credit Scoring Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-driven decentralized credit scoring using on-chain behavior and ML algorithms</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Machine Learning</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Chainlink</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Oracles</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-yellow-400"><i class="fas fa-spinner mr-2"></i>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8: AI Music NFT Platform -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-pink-500 to-rose-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-music text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI Music NFT Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">Generate and mint AI-composed music as NFTs with smart royalty distribution</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">AI Audio</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Arweave</span>
+                            <span class="glass px-2 py-1 rounded text-xs">ERC-721</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9: Healthcare Records AI System -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-teal-500 to-cyan-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-hospital text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Healthcare Records AI System</h3>
+                        <p class="text-gray-400 text-sm mb-4">Secure medical records on blockchain with AI-powered diagnosis assistance</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">NLP</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Hyperledger</span>
+                            <span class="glass px-2 py-1 rounded text-xs">HIPAA</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 10: AI DEX Aggregator -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-violet-500 to-purple-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-exchange-alt text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI DEX Aggregator</h3>
+                        <p class="text-gray-400 text-sm mb-4">Smart routing algorithm using AI to find best prices across decentralized exchanges</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Reinforcement Learning</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Uniswap</span>
+                            <span class="glass px-2 py-1 rounded text-xs">1inch</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 11: Gaming NFT AI Marketplace -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-amber-500 to-orange-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-gamepad text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Gaming NFT AI Marketplace</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-generated in-game assets as NFTs with rarity prediction and price optimization</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">GANs</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Immutable X</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Unity</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 12: Smart Contract Auditor AI -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-lime-500 to-green-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-file-contract text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Smart Contract Auditor AI</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-powered smart contract vulnerability detection and security audit automation</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Deep Learning</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Solidity</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Security</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-yellow-400"><i class="fas fa-spinner mr-2"></i>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 13: AI Lending Protocol -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-hand-holding-usd text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI Lending Protocol</h3>
+                        <p class="text-gray-400 text-sm mb-4">Machine learning-based risk assessment for decentralized lending and borrowing</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">ML Models</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Aave</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Compound</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 14: AI Video NFT Creator -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-fuchsia-500 to-pink-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-video text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI Video NFT Creator</h3>
+                        <p class="text-gray-400 text-sm mb-4">Generate unique video content using AI and mint as dynamic NFTs with evolving traits</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Video AI</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Flow</span>
+                            <span class="glass px-2 py-1 rounded text-xs">IPFS</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 15: DAO Governance AI Advisor -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-sky-500 to-blue-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-vote-yea text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">DAO Governance AI Advisor</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI assistant for DAO governance with proposal analysis and voting recommendations</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">NLP</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Snapshot</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Aragon</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 16: Liquidity Pool Optimizer -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-layer-group text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Liquidity Pool Optimizer</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-driven automated market maker with dynamic fee adjustment and impermanent loss protection</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Optimization</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Curve</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Balancer</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 17: Real Estate NFT Platform -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-rose-500 to-red-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-home text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Real Estate NFT Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-powered property valuation with fractional ownership through NFTs</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Predictive AI</span>
+                            <span class="glass px-2 py-1 rounded text-xs">ERC-1155</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Chainlink</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-yellow-400"><i class="fas fa-spinner mr-2"></i>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 18: Credential Verification System -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-amber-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-certificate text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Credential Verification System</h3>
+                        <p class="text-gray-400 text-sm mb-4">Blockchain-based credential verification with AI-powered fraud detection</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Computer Vision</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Ethereum</span>
+                            <span class="glass px-2 py-1 rounded text-xs">DID</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 19: Cross-Chain Bridge AI -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-purple-600 to-blue-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-random text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Cross-Chain Bridge AI</h3>
+                        <p class="text-gray-400 text-sm mb-4">Intelligent cross-chain asset bridge with AI-powered security and optimal routing</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Neural Networks</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Cosmos</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Polkadot</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 20: Education NFT Certificates -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-teal-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-graduation-cap text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Education NFT Certificates</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-verified learning achievements issued as blockchain certificates and NFT badges</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">AI Verification</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Polygon</span>
+                            <span class="glass px-2 py-1 rounded text-xs">OpenBadges</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 21: Anti-Fraud Detection System -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-orange-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-search text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Anti-Fraud Detection System</h3>
+                        <p class="text-gray-400 text-sm mb-4">Real-time fraud detection using AI pattern recognition on blockchain transactions</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Anomaly Detection</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Graph Neural Networks</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Analytics</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 22: Green Investment DAO -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-green-600 to-emerald-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-seedling text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Green Investment DAO</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-curated sustainable investment platform with carbon credit tokenization</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">ESG AI</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Carbon Credits</span>
+                            <span class="glass px-2 py-1 rounded text-xs">DAO</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 23: AI Story NFT Generator -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-indigo-600 to-violet-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-book text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI Story NFT Generator</h3>
+                        <p class="text-gray-400 text-sm mb-4">Create interactive AI-generated stories as evolving NFTs with reader choices</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">GPT-4</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Dynamic NFTs</span>
+                            <span class="glass px-2 py-1 rounded text-xs">IPFS</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-yellow-400"><i class="fas fa-spinner mr-2"></i>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 24: Logistics AI Blockchain -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-red-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-truck text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Logistics AI Blockchain</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI route optimization with blockchain tracking for global supply chains</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Route Optimization</span>
+                            <span class="glass px-2 py-1 rounded text-xs">VeChain</span>
+                            <span class="glass px-2 py-1 rounded text-xs">IoT</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 25: Smart Savings Protocol -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-pink-600 to-purple-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-piggy-bank text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Smart Savings Protocol</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-driven automated savings with predictive yield optimization and risk management</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Portfolio AI</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Yearn</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Strategies</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 26: Fashion NFT AI Studio -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-tshirt text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Fashion NFT AI Studio</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-designed digital fashion NFTs for metaverse avatars with trend prediction</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Fashion AI</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Decentraland</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Wearables</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 27: Privacy-Preserving AI -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-teal-600 to-green-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-lock text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Privacy-Preserving AI</h3>
+                        <p class="text-gray-400 text-sm mb-4">Federated learning on blockchain with AI model training without data sharing</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Federated Learning</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Zero-Knowledge</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Privacy</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-yellow-400"><i class="fas fa-spinner mr-2"></i>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 28: Portfolio Rebalancer AI -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-orange-600 to-red-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-chart-pie text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Portfolio Rebalancer AI</h3>
+                        <p class="text-gray-400 text-sm mb-4">Automated crypto portfolio rebalancing using reinforcement learning algorithms</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Reinforcement Learning</span>
+                            <span class="glass px-2 py-1 rounded text-xs">DeFi</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Automation</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 29: Metaverse Land AI Advisor -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-violet-600 to-fuchsia-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-atom text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Metaverse Land AI Advisor</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-powered metaverse land valuation and investment recommendations</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Predictive Models</span>
+                            <span class="glass px-2 py-1 rounded text-xs">The Sandbox</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Virtual Real Estate</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 30: Token Economics AI Model -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-slate-500 to-gray-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-coins text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Token Economics AI Model</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI simulation for optimal tokenomics design and economic model predictions</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Economic Models</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Simulation</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Analytics</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 31: AI Content Moderation DAO -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-emerald-600 to-cyan-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-filter text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI Content Moderation DAO</h3>
+                        <p class="text-gray-400 text-sm mb-4">Decentralized content moderation with AI-powered detection and community governance</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Computer Vision</span>
+                            <span class="glass px-2 py-1 rounded text-xs">DAO</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Governance</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 32: Quantum-Resistant Blockchain -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-purple-700 to-indigo-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-shield text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Quantum-Resistant Blockchain</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-enhanced quantum-resistant cryptography for future-proof blockchain security</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Post-Quantum</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Cryptography</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Security</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-yellow-400"><i class="fas fa-spinner mr-2"></i>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 33: AI Insurance Claims Platform -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-blue-700 to-sky-600 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-umbrella text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">DeFi + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI Insurance Claims Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">Automated insurance claims processing on blockchain with AI fraud detection</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Claims AI</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Smart Contracts</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Parametric</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2023</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 34: Synthetic Data Marketplace -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-red-600 to-pink-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-database text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">NFT + AI</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Synthetic Data Marketplace</h3>
+                        <p class="text-gray-400 text-sm mb-4">AI-generated synthetic datasets traded as NFTs with blockchain provenance</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Synthetic Data</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Data NFTs</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Ocean Protocol</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-green-400"><i class="fas fa-check-circle mr-2"></i>Completed</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 35: Decentralized AI Training Network -->
+                <div class="project-card glass-strong rounded-2xl overflow-hidden cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-teal-700 to-green-700 relative">
+                        <div class="absolute inset-0 flex items-center justify-center"><i class="fas fa-network-wired text-white text-6xl opacity-20"></i></div>
+                        <div class="absolute top-4 right-4"><span class="glass px-3 py-1 rounded-full text-xs font-semibold">Enterprise</span></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Decentralized AI Training Network</h3>
+                        <p class="text-gray-400 text-sm mb-4">Distributed AI model training with blockchain-based compute sharing and rewards</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="glass px-2 py-1 rounded text-xs">Distributed Computing</span>
+                            <span class="glass px-2 py-1 rounded text-xs">Render Network</span>
+                            <span class="glass px-2 py-1 rounded text-xs">GPU Sharing</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-gray-400"><i class="fas fa-calendar mr-2"></i>2024</span>
+                            <span class="text-yellow-400"><i class="fas fa-spinner mr-2"></i>In Progress</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10">
+        <div class="container mx-auto text-center">
+            <p class="text-gray-400">&copy; 2024 CodelessAI. All rights reserved. Built with passion for innovation.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
