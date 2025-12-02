@@ -134,23 +134,24 @@
             background-clip: text;
         }
         
-        /* Auto-scrolling animation - FIXED */
+        /* Improved Infinite Scrolling Animation */
         .scroll-container {
             overflow: hidden;
             position: relative;
             width: 100%;
+            padding: 20px 0;
         }
         
         .scroll-track {
             display: flex;
-            animation: scroll 40s linear infinite;
+            animation: scroll 50s linear infinite;
             width: max-content;
         }
         
         /* Faster scrolling on mobile */
         @media (max-width: 768px) {
             .scroll-track {
-                animation: scroll 20s linear infinite;
+                animation: scroll 25s linear infinite;
             }
         }
         
@@ -169,12 +170,17 @@
         
         .tech-item {
             flex-shrink: 0;
-            width: 180px;
-            margin: 0 20px;
+            width: 200px;
+            margin: 0 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
         }
         
         /* Mobile menu */
@@ -263,6 +269,20 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
             gap: 20px;
+        }
+        
+        /* Technology category badges */
+        .tech-category {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: bold;
+            z-index: 10;
         }
     </style>
 </head>
@@ -823,7 +843,7 @@
         </div>
     </section>
 
-    <!-- Technologies Section - FIXED Auto-scrolling -->
+    <!-- Technologies Section - IMPROVED Full Width Scrolling -->
     <section id="technologies" class="py-24 px-6">
         <div class="container mx-auto">
             <div class="text-center mb-16">
@@ -838,170 +858,211 @@
                 </p>
             </div>
 
-            <div class="mb-16">
-                <div class="scroll-container">
-                    <div class="scroll-track">
-                        <!-- AI/ML Technologies -->
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fab fa-python text-5xl text-blue-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Python</div>
-                            <div class="text-xs text-gray-400 mt-1">AI/ML Development</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-brain text-5xl text-pink-400 mb-3"></i>
-                            <div class="text-sm font-semibold">TensorFlow</div>
-                            <div class="text-xs text-gray-400 mt-1">ML Framework</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-project-diagram text-5xl text-red-400 mb-3"></i>
-                            <div class="text-sm font-semibold">PyTorch</div>
-                            <div class="text-xs text-gray-400 mt-1">Deep Learning</div>
-                        </div>
-                        
-                        <!-- Blockchain Technologies -->
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fab fa-ethereum text-5xl text-purple-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Ethereum</div>
-                            <div class="text-xs text-gray-400 mt-1">Smart Contracts</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-cube text-5xl text-indigo-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Solidity</div>
-                            <div class="text-xs text-gray-400 mt-1">Smart Contract Language</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-project-diagram text-5xl text-cyan-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Hyperledger</div>
-                            <div class="text-xs text-gray-400 mt-1">Enterprise Blockchain</div>
-                        </div>
-                        
-                        <!-- Integration Frameworks -->
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-exchange-alt text-5xl text-green-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Web3.js</div>
-                            <div class="text-xs text-gray-400 mt-1">Blockchain Integration</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-server text-5xl text-orange-400 mb-3"></i>
-                            <div class="text-sm font-semibold">AI Model Serving</div>
-                            <div class="text-xs text-gray-400 mt-1">TensorFlow Serving</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-link text-5xl text-yellow-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Oracles</div>
-                            <div class="text-xs text-gray-400 mt-1">Chainlink Integration</div>
-                        </div>
-                        
-                        <!-- Storage & Infrastructure -->
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-database text-5xl text-teal-400 mb-3"></i>
-                            <div class="text-sm font-semibold">IPFS</div>
-                            <div class="text-xs text-gray-400 mt-1">Decentralized Storage</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fab fa-docker text-5xl text-blue-500 mb-3"></i>
-                            <div class="text-sm font-semibold">Docker</div>
-                            <div class="text-xs text-gray-400 mt-1">Containerization</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fab fa-aws text-5xl text-yellow-500 mb-3"></i>
-                            <div class="text-sm font-semibold">AWS</div>
-                            <div class="text-xs text-gray-400 mt-1">Cloud Services</div>
-                        </div>
-                        
-                        <!-- Frontend & Other -->
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fab fa-react text-5xl text-cyan-400 mb-3"></i>
-                            <div class="text-sm font-semibold">React</div>
-                            <div class="text-xs text-gray-400 mt-1">Frontend Framework</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fab fa-node-js text-5xl text-green-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Node.js</div>
-                            <div class="text-xs text-gray-400 mt-1">Backend Runtime</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-database text-5xl text-gray-400 mb-3"></i>
-                            <div class="text-sm font-semibold">MongoDB</div>
-                            <div class="text-xs text-gray-400 mt-1">NoSQL Database</div>
-                        </div>
-                        
-                        <!-- Duplicate set for seamless scrolling -->
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fab fa-python text-5xl text-blue-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Python</div>
-                            <div class="text-xs text-gray-400 mt-1">AI/ML Development</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-brain text-5xl text-pink-400 mb-3"></i>
-                            <div class="text-sm font-semibold">TensorFlow</div>
-                            <div class="text-xs text-gray-400 mt-1">ML Framework</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-project-diagram text-5xl text-red-400 mb-3"></i>
-                            <div class="text-sm font-semibold">PyTorch</div>
-                            <div class="text-xs text-gray-400 mt-1">Deep Learning</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fab fa-ethereum text-5xl text-purple-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Ethereum</div>
-                            <div class="text-xs text-gray-400 mt-1">Smart Contracts</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-cube text-5xl text-indigo-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Solidity</div>
-                            <div class="text-xs text-gray-400 mt-1">Smart Contract Language</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-project-diagram text-5xl text-cyan-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Hyperledger</div>
-                            <div class="text-xs text-gray-400 mt-1">Enterprise Blockchain</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-exchange-alt text-5xl text-green-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Web3.js</div>
-                            <div class="text-xs text-gray-400 mt-1">Blockchain Integration</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-server text-5xl text-orange-400 mb-3"></i>
-                            <div class="text-sm font-semibold">AI Model Serving</div>
-                            <div class="text-xs text-gray-400 mt-1">TensorFlow Serving</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-link text-5xl text-yellow-400 mb-3"></i>
-                            <div class="text-sm font-semibold">Oracles</div>
-                            <div class="text-xs text-gray-400 mt-1">Chainlink Integration</div>
-                        </div>
-                        
-                        <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
-                            <i class="fas fa-database text-5xl text-teal-400 mb-3"></i>
-                            <div class="text-sm font-semibold">IPFS</div>
-                            <div class="text-xs text-gray-400 mt-1">Decentralized Storage</div>
-                        </div>
+            <!-- Full Width Infinite Scrolling Technologies -->
+            <div class="scroll-container">
+                <div class="scroll-track">
+                    <!-- Complete Set of Technologies (from your image) -->
+                    
+                    <!-- AI & Machine Learning Technologies -->
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fas fa-brain text-5xl text-blue-400 mb-3"></i>
+                        <div class="text-lg font-semibold">TensorFlow</div>
+                        <div class="text-sm text-gray-400 mt-2">Machine Learning Framework</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fas fa-project-diagram text-5xl text-red-400 mb-3"></i>
+                        <div class="text-lg font-semibold">PyTorch</div>
+                        <div class="text-sm text-gray-400 mt-2">Deep Learning Library</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fas fa-robot text-5xl text-purple-400 mb-3"></i>
+                        <div class="text-lg font-semibold">OpenAI GPT</div>
+                        <div class="text-sm text-gray-400 mt-2">Natural Language Processing</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fas fa-eye text-5xl text-green-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Computer Vision</div>
+                        <div class="text-sm text-gray-400 mt-2">Image & Video Analysis</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fab fa-python text-5xl text-blue-500 mb-3"></i>
+                        <div class="text-lg font-semibold">Python</div>
+                        <div class="text-sm text-gray-400 mt-2">AI/ML Development</div>
+                    </div>
+                    
+                    <!-- Blockchain Platforms -->
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #8a2be2, #4169e1);">Blockchain</div>
+                        <i class="fab fa-ethereum text-5xl text-purple-500 mb-3"></i>
+                        <div class="text-lg font-semibold">Ethereum</div>
+                        <div class="text-sm text-gray-400 mt-2">Smart Contracts Platform</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #8a2be2, #4169e1);">Blockchain</div>
+                        <i class="fas fa-cube text-5xl text-indigo-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Solidity</div>
+                        <div class="text-sm text-gray-400 mt-2">Smart Contract Language</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #8a2be2, #4169e1);">Blockchain</div>
+                        <i class="fas fa-project-diagram text-5xl text-cyan-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Hyperledger</div>
+                        <div class="text-sm text-gray-400 mt-2">Enterprise Blockchain</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #8a2be2, #4169e1);">Blockchain</div>
+                        <i class="fas fa-circle-nodes text-5xl text-pink-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Polkadot</div>
+                        <div class="text-sm text-gray-400 mt-2">Interoperability Platform</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #8a2be2, #4169e1);">Blockchain</div>
+                        <i class="fab fa-btc text-5xl text-yellow-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Binance Chain</div>
+                        <div class="text-sm text-gray-400 mt-2">Smart Contract Platform</div>
+                    </div>
+                    
+                    <!-- Integration Frameworks -->
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #00d2ff, #3a7bd5);">Integration</div>
+                        <i class="fas fa-exchange-alt text-5xl text-green-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Web3.js</div>
+                        <div class="text-sm text-gray-400 mt-2">Blockchain JavaScript API</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #00d2ff, #3a7bd5);">Integration</div>
+                        <i class="fas fa-server text-5xl text-orange-400 mb-3"></i>
+                        <div class="text-lg font-semibold">AI Model Serving</div>
+                        <div class="text-sm text-gray-400 mt-2">TensorFlow Serving</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #00d2ff, #3a7bd5);">Integration</div>
+                        <i class="fas fa-link text-5xl text-yellow-500 mb-3"></i>
+                        <div class="text-lg font-semibold">Oracles</div>
+                        <div class="text-sm text-gray-400 mt-2">Chainlink Integration</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #00d2ff, #3a7bd5);">Integration</div>
+                        <i class="fas fa-database text-5xl text-teal-400 mb-3"></i>
+                        <div class="text-lg font-semibold">IPFS</div>
+                        <div class="text-sm text-gray-400 mt-2">Decentralized Storage</div>
+                    </div>
+                    
+                    <!-- Infrastructure & Tools -->
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #ff9966, #ff5e62);">Infrastructure</div>
+                        <i class="fab fa-docker text-5xl text-blue-600 mb-3"></i>
+                        <div class="text-lg font-semibold">Docker</div>
+                        <div class="text-sm text-gray-400 mt-2">Containerization</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #ff9966, #ff5e62);">Infrastructure</div>
+                        <i class="fab fa-aws text-5xl text-yellow-500 mb-3"></i>
+                        <div class="text-lg font-semibold">AWS</div>
+                        <div class="text-sm text-gray-400 mt-2">Cloud Services</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #ff9966, #ff5e62);">Infrastructure</div>
+                        <i class="fab fa-react text-5xl text-cyan-400 mb-3"></i>
+                        <div class="text-lg font-semibold">React</div>
+                        <div class="text-sm text-gray-400 mt-2">Frontend Framework</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #ff9966, #ff5e62);">Infrastructure</div>
+                        <i class="fab fa-node-js text-5xl text-green-500 mb-3"></i>
+                        <div class="text-lg font-semibold">Node.js</div>
+                        <div class="text-sm text-gray-400 mt-2">Backend Runtime</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #ff9966, #ff5e62);">Infrastructure</div>
+                        <i class="fas fa-database text-5xl text-green-400 mb-3"></i>
+                        <div class="text-lg font-semibold">MongoDB</div>
+                        <div class="text-sm text-gray-400 mt-2">NoSQL Database</div>
+                    </div>
+                    
+                    <!-- Duplicate Set for Seamless Infinite Scrolling -->
+                    <!-- AI & Machine Learning Technologies (Duplicate) -->
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fas fa-brain text-5xl text-blue-400 mb-3"></i>
+                        <div class="text-lg font-semibold">TensorFlow</div>
+                        <div class="text-sm text-gray-400 mt-2">Machine Learning Framework</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fas fa-project-diagram text-5xl text-red-400 mb-3"></i>
+                        <div class="text-lg font-semibold">PyTorch</div>
+                        <div class="text-sm text-gray-400 mt-2">Deep Learning Library</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fas fa-robot text-5xl text-purple-400 mb-3"></i>
+                        <div class="text-lg font-semibold">OpenAI GPT</div>
+                        <div class="text-sm text-gray-400 mt-2">Natural Language Processing</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fas fa-eye text-5xl text-green-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Computer Vision</div>
+                        <div class="text-sm text-gray-400 mt-2">Image & Video Analysis</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category">AI/ML</div>
+                        <i class="fab fa-python text-5xl text-blue-500 mb-3"></i>
+                        <div class="text-lg font-semibold">Python</div>
+                        <div class="text-sm text-gray-400 mt-2">AI/ML Development</div>
+                    </div>
+                    
+                    <!-- Blockchain Platforms (Duplicate) -->
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #8a2be2, #4169e1);">Blockchain</div>
+                        <i class="fab fa-ethereum text-5xl text-purple-500 mb-3"></i>
+                        <div class="text-lg font-semibold">Ethereum</div>
+                        <div class="text-sm text-gray-400 mt-2">Smart Contracts Platform</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #8a2be2, #4169e1);">Blockchain</div>
+                        <i class="fas fa-cube text-5xl text-indigo-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Solidity</div>
+                        <div class="text-sm text-gray-400 mt-2">Smart Contract Language</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center relative">
+                        <div class="tech-category" style="background: linear-gradient(135deg, #8a2be2, #4169e1);">Blockchain</div>
+                        <i class="fas fa-project-diagram text-5xl text-cyan-400 mb-3"></i>
+                        <div class="text-lg font-semibold">Hyperledger</div>
+                        <div class="text-sm text-gray-400 mt-2">Enterprise Blockchain</div>
                     </div>
                 </div>
             </div>
-            
-            <!-- Technology Categories -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+
+            <!-- Technology Categories Summary -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
                 <div class="glass-strong rounded-2xl p-8">
                     <h3 class="text-2xl font-bold mb-6 flex items-center">
                         <i class="fas fa-brain text-blue-400 mr-3"></i>
@@ -1734,6 +1795,29 @@
                 }
             });
         });
+        
+        // Technology scrolling enhancement for wide screens
+        function adjustScrollSpeed() {
+            const scrollTracks = document.querySelectorAll('.scroll-track');
+            const screenWidth = window.innerWidth;
+            
+            scrollTracks.forEach(track => {
+                if (screenWidth > 1200) {
+                    // Ultra-wide screens - faster scrolling
+                    track.style.animationDuration = '40s';
+                } else if (screenWidth > 768) {
+                    // Laptop/desktop screens - medium speed
+                    track.style.animationDuration = '50s';
+                } else {
+                    // Mobile screens - slower
+                    track.style.animationDuration = '25s';
+                }
+            });
+        }
+        
+        // Adjust on load and resize
+        window.addEventListener('load', adjustScrollSpeed);
+        window.addEventListener('resize', adjustScrollSpeed);
     </script>
 
 </body>
