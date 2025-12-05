@@ -1,1 +1,1090 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodelessAI - AI & Blockchain Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .font-grotesk {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .glass-strong {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Animated gradient background */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Dark tech gradient */
+        .tech-gradient {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+        }
+        
+        /* Glow effects */
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.4);
+        }
+        
+        .glow-purple {
+            box-shadow: 0 0 20px rgba(118, 75, 162, 0.4);
+        }
+        
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Grid pattern */
+        .grid-pattern {
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        /* Particle effect */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: particleFloat 20s infinite;
+        }
+        
+        @keyframes particleFloat {
+            0%, 100% { 
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { 
+                transform: translate(100px, -800px) scale(0);
+                opacity: 0;
+            }
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            border-radius: 5px;
+        }
+        
+        /* Hover effects */
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        /* Text gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Auto-scrolling animation */
+        .scroll-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        
+        .scroll-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        
+        /* Faster scrolling on mobile */
+        @media (max-width: 768px) {
+            .scroll-track {
+                animation: scroll 10s linear infinite;
+            }
+        }
+        
+        .scroll-track:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .tech-item {
+            flex-shrink: 0;
+            width: 180px;
+            margin: 0 12px;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            background: rgba(15, 12, 41, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            z-index: 40;
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    
+    <!-- Animated Background -->
+    <div class="fixed inset-0 tech-gradient grid-pattern opacity-90 -z-10"></div>
+    
+    <!-- Particles -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-5">
+        <div class="particle" style="left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; width: 6px; height: 6px; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 30%; width: 3px; height: 3px; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 40%; width: 5px; height: 5px; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 50%; width: 4px; height: 4px; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 60%; width: 6px; height: 6px; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 70%; width: 3px; height: 3px; animation-delay: 2.5s;"></div>
+        <div class="particle" style="left: 80%; width: 5px; height: 5px; animation-delay: 4.5s;"></div>
+        <div class="particle" style="left: 90%; width: 4px; height: 4px; animation-delay: 1.5s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 glass-strong">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center glow-blue">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <span class="text-2xl font-bold font-grotesk">Codeless<span class="text-gradient">AI</span></span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-white transition">Home</a>
+                    <a href="#services" class="text-gray-300 hover:text-white transition">Services</a>
+                    <a href="#technologies" class="text-gray-300 hover:text-white transition">Technologies</a>
+                    <a href="#projects" class="text-gray-300 hover:text-white transition">Projects</a>
+                    <a href="#team" class="text-gray-300 hover:text-white transition">Team</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <button class="hidden md:block bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition">
+                    Get Started
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu">
+            <nav class="flex flex-col space-y-4">
+                <a href="#home" class="text-gray-300 hover:text-white transition py-2">Home</a>
+                <a href="#services" class="text-gray-300 hover:text-white transition py-2">Services</a>
+                <a href="#technologies" class="text-gray-300 hover:text-white transition py-2">Technologies</a>
+                <a href="#projects" class="text-gray-300 hover:text-white transition py-2">Projects</a>
+                <a href="#team" class="text-gray-300 hover:text-white transition py-2">Team</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition py-2">Contact</a>
+                <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition w-full mt-4">
+                    Get Started
+                </button>
+            </nav>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="space-y-8">
+                    <div class="inline-block glass px-4 py-2 rounded-full text-sm font-semibold">
+                        <span class="text-gradient">🚀 Innovation Meets Intelligence</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-7xl font-bold font-grotesk leading-tight">
+                        Building the
+                        <span class="text-gradient block">Future with AI</span>
+                        & Blockchain
+                    </h1>
+                    
+                    <p class="text-xl text-gray-300 leading-relaxed">
+                        We transform businesses with cutting-edge AI solutions and blockchain technology. 
+                        From intelligent automation to decentralized applications, we bring innovation to life.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition glow-purple">
+                            Explore Services
+                        </button>
+                        <a href="portfolio.html" class="glass-strong px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition inline-block">
+                            View Portfolio
+                        </a>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 pt-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-gradient">150+</div>
+                            <div class="text-gray-400 text-sm mt-1">Projects Completed</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-gradient">50+</div>
+                            <div class="text-gray-400 text-sm mt-1">Happy Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-gradient">98%</div>
+                            <div class="text-gray-400 text-sm mt-1">Success Rate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual -->
+                <div class="relative float">
+                    <div class="glass-strong rounded-3xl p-8 glow-blue">
+                        <div class="space-y-6">
+                            <!-- AI Visualization -->
+                            <div class="glass rounded-2xl p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-sm font-semibold text-gray-300">AI Processing</span>
+                                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-robot text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full w-4/5"></div>
+                                        </div>
+                                        <span class="text-xs text-gray-400">94%</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-brain text-sm"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="h-2 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full w-3/5"></div>
+                                        </div>
+                                        <span class="text-xs text-gray-400">87%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Blockchain Visualization -->
+                            <div class="glass rounded-2xl p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-sm font-semibold text-gray-300">Blockchain Network</span>
+                                    <i class="fas fa-link text-green-400"></i>
+                                </div>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <div class="glass-strong rounded-lg p-3 text-center">
+                                        <i class="fas fa-cube text-blue-400 text-xl mb-2"></i>
+                                        <div class="text-xs text-gray-400">Block #1847</div>
+                                    </div>
+                                    <div class="glass-strong rounded-lg p-3 text-center">
+                                        <i class="fas fa-cube text-purple-400 text-xl mb-2"></i>
+                                        <div class="text-xs text-gray-400">Block #1848</div>
+                                    </div>
+                                    <div class="glass-strong rounded-lg p-3 text-center">
+                                        <i class="fas fa-cube text-pink-400 text-xl mb-2"></i>
+                                        <div class="text-xs text-gray-400">Block #1849</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Real-time Analytics -->
+                            <div class="glass rounded-2xl p-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-sm font-semibold text-gray-300">Real-time Analytics</span>
+                                    <span class="text-xs text-green-400">Live</span>
+                                </div>
+                                <div class="flex items-end justify-between h-24 space-x-2">
+                                    <div class="bg-gradient-to-t from-blue-500 to-purple-600 w-full rounded-t" style="height: 60%"></div>
+                                    <div class="bg-gradient-to-t from-blue-500 to-purple-600 w-full rounded-t" style="height: 80%"></div>
+                                    <div class="bg-gradient-to-t from-blue-500 to-purple-600 w-full rounded-t" style="height: 45%"></div>
+                                    <div class="bg-gradient-to-t from-blue-500 to-purple-600 w-full rounded-t" style="height: 90%"></div>
+                                    <div class="bg-gradient-to-t from-blue-500 to-purple-600 w-full rounded-t" style="height: 70%"></div>
+                                    <div class="bg-gradient-to-t from-purple-500 to-pink-600 w-full rounded-t" style="height: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block glass px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <span class="text-gradient">Our Expertise</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold font-grotesk mb-6">
+                    Services We <span class="text-gradient">Provide</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                    Comprehensive AI and blockchain solutions tailored to transform your business
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-strong rounded-2xl p-8 service-card">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 glow-blue">
+                        <i class="fas fa-robot text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-grotesk">AI Development</h3>
+                    <p class="text-gray-400 mb-6">
+                        Custom AI solutions including machine learning models, natural language processing, 
+                        computer vision, and predictive analytics tailored to your business needs.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Machine Learning Models
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Neural Networks
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            AI Integration
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-strong rounded-2xl p-8 service-card">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl flex items-center justify-center mb-6 glow-purple">
+                        <i class="fas fa-link text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-grotesk">Blockchain Solutions</h3>
+                    <p class="text-gray-400 mb-6">
+                        Secure and scalable blockchain applications, smart contracts, DeFi platforms, 
+                        NFT marketplaces, and decentralized applications (dApps).
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Smart Contracts
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            DeFi Applications
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            NFT Development
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-strong rounded-2xl p-8 service-card">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-grotesk">App Development</h3>
+                    <p class="text-gray-400 mb-6">
+                        Full-stack mobile and web application development with AI and blockchain 
+                        integration for next-generation digital experiences.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Mobile Apps (iOS/Android)
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Web Applications
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Progressive Web Apps
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-strong rounded-2xl p-8 service-card">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-grotesk">AI Chatbots</h3>
+                    <p class="text-gray-400 mb-6">
+                        Intelligent conversational AI and chatbots powered by advanced NLP 
+                        for customer service, support, and engagement automation.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            NLP-Powered Bots
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Multi-Platform Integration
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            24/7 Automation
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="glass-strong rounded-2xl p-8 service-card">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-grotesk">Data Analytics</h3>
+                    <p class="text-gray-400 mb-6">
+                        Advanced data analytics and business intelligence solutions using AI 
+                        to derive actionable insights from your data.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Predictive Analytics
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Data Visualization
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Business Intelligence
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="glass-strong rounded-2xl p-8 service-card">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 font-grotesk">Consulting</h3>
+                    <p class="text-gray-400 mb-6">
+                        Strategic consulting for AI and blockchain adoption, helping you 
+                        navigate the technology landscape and implement best practices.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Technology Strategy
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Implementation Planning
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-2"></i>
+                            Training & Support
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="technologies" class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block glass px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <span class="text-gradient">Tech Stack</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold font-grotesk mb-6">
+                    Technologies We <span class="text-gradient">Master</span>
+                </h2>
+            </div>
+
+            <div class="scroll-container">
+                <div class="scroll-track">
+                    <!-- First set of technologies -->
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-python text-5xl text-blue-400 mb-3"></i>
+                        <div class="text-sm font-semibold">Python</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-node-js text-5xl text-green-400 mb-3"></i>
+                        <div class="text-sm font-semibold">Node.js</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-react text-5xl text-cyan-400 mb-3"></i>
+                        <div class="text-sm font-semibold">React</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-ethereum text-5xl text-purple-400 mb-3"></i>
+                        <div class="text-sm font-semibold">Ethereum</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fas fa-database text-5xl text-orange-400 mb-3"></i>
+                        <div class="text-sm font-semibold">TensorFlow</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-docker text-5xl text-blue-500 mb-3"></i>
+                        <div class="text-sm font-semibold">Docker</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-aws text-5xl text-yellow-400 mb-3"></i>
+                        <div class="text-sm font-semibold">AWS</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fas fa-brain text-5xl text-pink-400 mb-3"></i>
+                        <div class="text-sm font-semibold">PyTorch</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-js text-5xl text-yellow-300 mb-3"></i>
+                        <div class="text-sm font-semibold">JavaScript</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fas fa-cube text-5xl text-indigo-400 mb-3"></i>
+                        <div class="text-sm font-semibold">Solidity</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-google text-5xl text-red-400 mb-3"></i>
+                        <div class="text-sm font-semibold">GCP</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fas fa-server text-5xl text-gray-400 mb-3"></i>
+                        <div class="text-sm font-semibold">MongoDB</div>
+                    </div>
+                    
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-python text-5xl text-blue-400 mb-3"></i>
+                        <div class="text-sm font-semibold">Python</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-node-js text-5xl text-green-400 mb-3"></i>
+                        <div class="text-sm font-semibold">Node.js</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-react text-5xl text-cyan-400 mb-3"></i>
+                        <div class="text-sm font-semibold">React</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-ethereum text-5xl text-purple-400 mb-3"></i>
+                        <div class="text-sm font-semibold">Ethereum</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fas fa-database text-5xl text-orange-400 mb-3"></i>
+                        <div class="text-sm font-semibold">TensorFlow</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-docker text-5xl text-blue-500 mb-3"></i>
+                        <div class="text-sm font-semibold">Docker</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-aws text-5xl text-yellow-400 mb-3"></i>
+                        <div class="text-sm font-semibold">AWS</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fas fa-brain text-5xl text-pink-400 mb-3"></i>
+                        <div class="text-sm font-semibold">PyTorch</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-js text-5xl text-yellow-300 mb-3"></i>
+                        <div class="text-sm font-semibold">JavaScript</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fas fa-cube text-5xl text-indigo-400 mb-3"></i>
+                        <div class="text-sm font-semibold">Solidity</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fab fa-google text-5xl text-red-400 mb-3"></i>
+                        <div class="text-sm font-semibold">GCP</div>
+                    </div>
+                    
+                    <div class="tech-item glass-strong rounded-xl p-6 text-center hover:scale-110 transition">
+                        <i class="fas fa-server text-5xl text-gray-400 mb-3"></i>
+                        <div class="text-sm font-semibold">MongoDB</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block glass px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <span class="text-gradient">Our Work</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold font-grotesk mb-6">
+                    Featured <span class="text-gradient">Projects</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-strong rounded-2xl overflow-hidden group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-brain text-white text-6xl opacity-20"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">AI-Powered CRM</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Intelligent customer relationship management system with predictive analytics
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass px-3 py-1 rounded-full text-xs">AI/ML</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">Python</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-strong rounded-2xl overflow-hidden group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-cubes text-white text-6xl opacity-20"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">DeFi Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Decentralized finance platform for lending, borrowing, and yield farming
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass px-3 py-1 rounded-full text-xs">Blockchain</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">Solidity</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">Web3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-strong rounded-2xl overflow-hidden group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-comments text-white text-6xl opacity-20"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Smart Chatbot</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            NLP-powered customer service chatbot with multi-language support
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass px-3 py-1 rounded-full text-xs">NLP</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">GPT-4</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-strong rounded-2xl overflow-hidden group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-image text-white text-6xl opacity-20"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">NFT Marketplace</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Full-featured NFT marketplace with minting, trading, and auctions
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass px-3 py-1 rounded-full text-xs">NFT</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">IPFS</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">Ethereum</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="glass-strong rounded-2xl overflow-hidden group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-chart-bar text-white text-6xl opacity-20"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Analytics Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Real-time business intelligence dashboard with AI-driven insights
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass px-3 py-1 rounded-full text-xs">Analytics</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">D3.js</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="glass-strong rounded-2xl overflow-hidden group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-pink-600 relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-white text-6xl opacity-20"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 font-grotesk">Security Suite</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            AI-powered cybersecurity solution for threat detection and prevention
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="glass px-3 py-1 rounded-full text-xs">Security</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">AI</span>
+                            <span class="glass px-3 py-1 rounded-full text-xs">Cloud</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-block glass px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                    <span class="text-gradient">Meet the Team</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold font-grotesk mb-6">
+                    Our Expert <span class="text-gradient">Team</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="glass-strong rounded-2xl p-6 text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold">
+                        JD
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 font-grotesk">John Doe</h3>
+                    <p class="text-gray-400 text-sm mb-4">CEO & AI Architect</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="glass w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="glass w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="glass-strong rounded-2xl p-6 text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold">
+                        JS
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 font-grotesk">Jane Smith</h3>
+                    <p class="text-gray-400 text-sm mb-4">Blockchain Lead</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="glass w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="glass w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="glass-strong rounded-2xl p-6 text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold">
+                        MB
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 font-grotesk">Mike Brown</h3>
+                    <p class="text-gray-400 text-sm mb-4">ML Engineer</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="glass w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="glass w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="glass-strong rounded-2xl p-6 text-center">
+                    <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold">
+                        SW
+                    </div>
+                    <h3 class="text-xl font-bold mb-1 font-grotesk">Sarah Wilson</h3>
+                    <p class="text-gray-400 text-sm mb-4">Full Stack Developer</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="glass w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="glass w-8 h-8 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6">
+        <div class="container mx-auto">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <div class="inline-block glass px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                        <span class="text-gradient">Get In Touch</span>
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-bold font-grotesk mb-6">
+                        Let's Build <span class="text-gradient">Together</span>
+                    </h2>
+                    <p class="text-xl text-gray-400">
+                        Ready to transform your business with AI and blockchain? Let's talk.
+                    </p>
+                </div>
+
+                <div class="glass-strong rounded-2xl p-8 md:p-12">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Name</label>
+                                <input type="text" class="w-full glass-strong rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold mb-2">Email</label>
+                                <input type="email" class="w-full glass-strong rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="your@email.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Service Interested In</label>
+                            <select class="w-full glass-strong rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                                <option>AI Development</option>
+                                <option>Blockchain Solutions</option>
+                                <option>App Development</option>
+                                <option>AI Chatbots</option>
+                                <option>Data Analytics</option>
+                                <option>Consulting</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Message</label>
+                            <textarea rows="5" class="w-full glass-strong rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-purple-500" placeholder="Tell us about your project..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition glow-purple">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                    <div class="glass-strong rounded-xl p-6 text-center">
+                        <i class="fas fa-envelope text-3xl text-purple-400 mb-3"></i>
+                        <h4 class="font-semibold mb-2">Email</h4>
+                        <p class="text-gray-400 text-sm">hello@codelessai.com</p>
+                    </div>
+                    <div class="glass-strong rounded-xl p-6 text-center">
+                        <i class="fas fa-phone text-3xl text-blue-400 mb-3"></i>
+                        <h4 class="font-semibold mb-2">Phone</h4>
+                        <p class="text-gray-400 text-sm">+1 (555) 123-4567</p>
+                    </div>
+                    <div class="glass-strong rounded-xl p-6 text-center">
+                        <i class="fas fa-map-marker-alt text-3xl text-pink-400 mb-3"></i>
+                        <h4 class="font-semibold mb-2">Location</h4>
+                        <p class="text-gray-400 text-sm">San Francisco, CA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-white/10">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-brain text-white text-xl"></i>
+                        </div>
+                        <span class="text-2xl font-bold font-grotesk">Codeless<span class="text-gradient">AI</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Transforming businesses with cutting-edge AI and blockchain technology. 
+                        Building the future, one innovation at a time.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#" class="glass w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="glass w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="glass w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="glass w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/20 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-white transition">Services</a></li>
+                        <li><a href="#technologies" class="hover:text-white transition">Technologies</a></li>
+                        <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+                        <li><a href="#team" class="hover:text-white transition">Team</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-white transition">Case Studies</a></li>
+                        <li><a href="#" class="hover:text-white transition">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2024 CodelessAI. All rights reserved. Built with passion for innovation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
